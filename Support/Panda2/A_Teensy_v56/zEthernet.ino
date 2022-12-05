@@ -54,6 +54,15 @@ void EthernetStart()
     Serial.println(portMy);
   }
 
+  //Add port for NMEA to be recieved over UDP from GPS1
+  
+  // init UDP Port getting GGA from GPS over network
+  if (Eth_udpGPSOne.begin(AOGGpsOnePort))
+  {
+    Serial.print("Ethernet GPS UDP listening from port: ");
+    Serial.println(AOGGpsOnePort);
+  }
+
   // init UPD Port getting NTRIP from AOG
   if (Eth_udpNtrip.begin(AOGNtripPort)) // AOGNtripPort
   {
