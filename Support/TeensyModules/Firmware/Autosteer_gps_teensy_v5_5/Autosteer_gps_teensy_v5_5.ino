@@ -86,6 +86,8 @@ byte Eth_myip[4] = { 0, 0, 0, 0}; //This is now set via AgIO
 byte mac[] = {0x00, 0x00, 0x56, 0x00, 0x00, 0x78};
 
 unsigned int portMy = 5120;             // port of this module
+EthernetUDP Eth_udpGPSOne = 2211;              //In Port 2211 for UDP GPS1 NMEA
+//EthernetUDP Eth_udpGPSTwo = 2222;              //In Port 2222 for UDP GPS2
 unsigned int AOGNtripPort = 2233;       // port NTRIP data from AOG comes in
 unsigned int AOGAutoSteerPort = 8888;   // port Autosteer data from AOG comes in
 unsigned int portDestination = 9999;    // Port of AOG that listens
@@ -93,8 +95,13 @@ char Eth_NTRIP_packetBuffer[512];       // buffer for receiving ntrip data
 
 // An EthernetUDP instance to let us send and receive packets over UDP
 EthernetUDP Eth_udpPAOGI;     //Out port 5544
+EthernetUDP Eth_udpGPSOne;    //In Port 2211 for UDP GPS1 NMEA
+//EthernetUDP Eth_udpGPSTwo;    //In Port 2222 for UDP GPS2
 EthernetUDP Eth_udpNtrip;     //In port 2233
 EthernetUDP Eth_udpAutoSteer; //In & Out Port 8888
+
+//UDP GPS input
+int GPSudp = 0;
 
 IPAddress Eth_ipDestination;
 #endif // ARDUINO_TEENSY41
@@ -305,6 +312,21 @@ void setup()
 
 void loop()
 {
+
+// Read incoming nmea from GPS over UDP, Check for UDP Packet (GPS Port 2211)
+// If not carry on with regular serial input
+
+  GPSudp = Eth_udpGPSOne.parsePacket(); 
+    if (GPSudp) 
+    {
+      Eth_udpGPSOne.read(GPSrxbuffer, GPSudp);
+      for (int i=0; i<GPSudp; i++)
+      {
+        parser << GPSrxbuffer[i];
+      }       
+     }
+
+
     if (GGA_Available == false && !passThroughGPS && !passThroughGPS2)
     {
         if (systick_millis_count - PortSwapTime >= 10000)

@@ -62,8 +62,8 @@ byte mac[] = {0x00, 0x00, 0x56, 0x00, 0x00, 0x78}; // original
 
 byte Eth_ipDest_ending = 255;           // ending of IP address to send UDP data to
 unsigned int portMy = 5120;             // port of this module
-EthernetUDP Eth_udpGPSOne;              //In Port 2211 for UDP GPS1 NMEA
-//EthernetUDP Eth_udpGPSTwo;              //In Port 2222 for UDP GPS2
+EthernetUDP Eth_udpGPSOne = 2211;              //In Port 2211 for UDP GPS1 NMEA
+//EthernetUDP Eth_udpGPSTwo = 2222;              //In Port 2222 for UDP GPS2
 unsigned int AOGNtripPort = 2233;       // port NTRIP data from AOG comes in
 unsigned int AOGAutoSteerPort = 8888;   // port Autosteer data from AOG comes in
 unsigned int portDestination = 9999;    // Port of AOG that listens
