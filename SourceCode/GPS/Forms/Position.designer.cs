@@ -653,9 +653,17 @@ namespace AgOpenGPS
             //preset the values
             guidanceLineDistanceOff = 32000;
 
+            //Vehicle XTE
+            p_233.pgn[p_233.highVehXTE] = unchecked((byte)(0));
+            p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(0));
+
             if (ct.isContourBtnOn)
             {
                 ct.DistanceFromContourLine(pivotAxlePos, steerAxlePos);
+
+                //Vehicle XTE
+                p_233.pgn[p_233.highVehXTE] = unchecked((byte)(guidanceLineDistanceOff >> 8));
+                p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(guidanceLineDistanceOff));
             }
             else
             {
@@ -663,11 +671,19 @@ namespace AgOpenGPS
                 {
                     //do the calcs for AB Curve
                     curve.GetCurrentCurveLine(pivotAxlePos, steerAxlePos);
+
+                    //Vehicle XTE
+                    p_233.pgn[p_233.highVehXTE] = unchecked((byte)(guidanceLineDistanceOff >> 8));
+                    p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(guidanceLineDistanceOff));
                 }
 
                 if (ABLine.isABLineSet && ABLine.isBtnABLineOn)
                 {
                     ABLine.GetCurrentABLine(pivotAxlePos, steerAxlePos);
+
+                    //Vehicle XTE
+                    p_233.pgn[p_233.highVehXTE] = unchecked((byte)(guidanceLineDistanceOff >> 8));
+                    p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(guidanceLineDistanceOff));
                 }
             }
 
@@ -743,6 +759,9 @@ namespace AgOpenGPS
 
             //out serial to autosteer module  //indivdual classes load the distance and heading deltas 
             SendPgnToLoop(p_254.pgn);
+
+            //Send tool steer data
+            SendPgnToLoop(p_233.pgn);
 
             //for average cross track error
             if (guidanceLineDistanceOff < 29000)

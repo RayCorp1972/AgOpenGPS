@@ -310,6 +310,27 @@ namespace AgOpenGPS
 
         //pgn instances
 
+        //Tool Steer Data 233
+        public class CPGN_E9
+        {
+            /// <summary>
+            /// PGN - 233 - E9 - Tool Steer Data
+            /// </summary>
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xE9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+            //public int lowXTE = 5;
+            //public int highXTE = 6;
+            // public int status = 7;
+            public int lowVehXTE = 8;
+            public int highVehXTE = 9;
+            //public int speed = 10;
+            //public int sc1to8 = 11;
+            //public int sc9to16 = 12;
+
+            public CPGN_E9()
+            {
+            }
+        }
+
         /// <summary>
         /// autoSteerData - FE - 254 - 
         /// </summary>
@@ -346,7 +367,7 @@ namespace AgOpenGPS
         /// LatitudeLongitude - D0 - 
         /// </summary>
         //public CPGN_D0 p_208 = new CPGN_D0();
-
+        public CPGN_E9 p_233 = new CPGN_E9();
     }
 }
     

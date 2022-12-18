@@ -223,6 +223,12 @@ namespace AgIO
                             SendSteerModulePort(data, data.Length);
                             break;
                         }
+
+                    case 0xE9: //233 tool steer data (XTE mm output)
+                        {
+                            SendMachineModulePort(data, data.Length);
+                            break;
+                        }
                 }
             }
         }
