@@ -789,7 +789,7 @@ void EncoderFunc()
   }
 }
 
-void buildXTE()
+void buildXTE()  // XTE string builder
 {
   strcpy(nmeaXTE, "");
 
@@ -821,7 +821,7 @@ void buildXTE()
   Serial5.println(nmeaXTE);
 }
 
-void CalculateChecksum1()
+void CalculateChecksum1() // Calculation for XTE
 {
   int16_t sum = 0;
   int16_t inx = 0;
