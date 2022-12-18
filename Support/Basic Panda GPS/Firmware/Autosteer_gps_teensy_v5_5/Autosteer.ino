@@ -16,7 +16,7 @@
      122hz = 1
      3921hz = 2
 */
-#define PWM_Frequency 0
+#define PWM_Frequency 2
 
 /////////////////////////////////////////////
 
@@ -66,11 +66,10 @@ ADS1115_lite adc(ADS1115_DEFAULT_ADDRESS);     // Use this for the 16-bit versio
 #include <NativeEthernetUdp.h>
 #endif
 
-IPAddress ipDestination(192, 168, 5, 255);
-
 #ifdef ARDUINO_TEENSY41
 //uint8_t Ethernet::buffer[200]; // udp send and receive buffer
 uint8_t autoSteerUdpData[UDP_TX_PACKET_MAX_SIZE];  // Buffer For Receiving UDP Data
+uint8_t MachineUdpData[UDP_TX_PACKET_MAX_SIZE];  // Buffer For Receiving UDP Data
 #endif
 
 //loop time variables in microseconds
@@ -83,6 +82,7 @@ const uint16_t WATCHDOG_FORCE_VALUE = WATCHDOG_THRESHOLD + 2; // Should be great
 uint8_t watchdogTimer = WATCHDOG_FORCE_VALUE;
 
 //Heart beat hello AgIO
+uint8_t helloFromIMU[] = { 128, 129, 121, 121, 1, 1, 71 };
 uint8_t helloFromAutoSteer[] = { 0x80, 0x81, 126, 126, 5, 0, 0, 0, 0, 0, 71 };
 int16_t helloSteerPosition = 0;
 
@@ -97,6 +97,10 @@ uint8_t aog2Count = 0;
 float sensorReading;
 float sensorSample;
 
+//frommachineData FD 253 - ActualSteerAngle*100 -5,6, SwitchByte-7, pwmDisplay-8
+uint8_t PGN_233[] = { 0x80, 0x81, 0x7f, 0xE9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+int8_t PGN_233_Size = sizeof(PGN_233) - 1;
+
 //EEPROM
 int16_t EEread = 0;
 
@@ -107,6 +111,12 @@ uint8_t tram = 0;
 
 //Switches
 uint8_t remoteSwitch = 0, workSwitch = 0, steerSwitch = 1, switchByte = 0;
+
+//**XTE**
+char nmeaXTE[100];
+char stringXTE[8];
+int XTE;
+float metersXTE;
 
 //On Off
 uint8_t guidanceStatus = 0;
@@ -177,6 +187,7 @@ void steerSettingsInit()
 
 void autosteerSetup()
 {
+   
   //PWM rate settings. Set them both the same!!!!
   /*  PWM Frequency ->
        490hz (default) = 0
@@ -229,25 +240,30 @@ void autosteerSetup()
     EEPROM.put(0, EEP_Ident);
     EEPROM.put(10, steerSettings);
     EEPROM.put(40, steerConfig);
+    EEPROM.put(60, networkAddress);    
   }
   else
   {
     EEPROM.get(10, steerSettings);     // read the Settings
     EEPROM.get(40, steerConfig);
+    EEPROM.get(60, networkAddress); 
   }
 
   steerSettingsInit();
   steerConfigInit();
 
-  if (Autosteer_running && Ethernet_running) 
+  if (Autosteer_running) 
   {
-    Serial.println("Autosteer running, waiting for AgOpenGPS via UDP/Ethernet");
+    Serial.println("Autosteer running, waiting for AgOpenGPS");
+    // Autosteer Led goes Red if ADS1115 is found
+    digitalWrite(AUTOSTEER_ACTIVE_LED, 0);
+    digitalWrite(AUTOSTEER_STANDBY_LED, 1);
   }
   else
   {
     Autosteer_running = false;  //Turn off auto steer if no ethernet (Maybe running T4.0)
-    if(!Ethernet_running)Serial.println("Ethernet not available");
-    Serial.println("Autosteer disabled, GPS only mode");
+//    if(!Ethernet_running)Serial.println("Ethernet not available");
+    Serial.println("Autosteer disabled, GPS only mode");   
     return;
   }
 
@@ -428,6 +444,10 @@ void autosteerLoop()
 
       calcSteeringPID();  //do the pid
       motorDrive();       //out to motors the pwm value
+      // Autosteer Led goes GREEN if autosteering
+
+      digitalWrite(AUTOSTEER_ACTIVE_LED, 1);
+      digitalWrite(AUTOSTEER_STANDBY_LED, 0);
     }
     else
     {
@@ -449,10 +469,13 @@ void autosteerLoop()
       pwmDrive = 0; //turn off steering motor
       motorDrive(); //out to motors the pwm value
       pulseCount = 0;
+      // Autosteer Led goes back to RED when autosteering is stopped
+      digitalWrite (AUTOSTEER_STANDBY_LED, 1);
+      digitalWrite (AUTOSTEER_ACTIVE_LED, 0);
     }
   } //end of timed loop
 
-  //This runs continuously, outside of the timed loop, keeps checking for new udpData, turn sense
+  //This runs continuously, outside of the timed loop, keeps checking for new MachineUdpData, turn sense
   //delay(1);
 
   // Speed pulse
@@ -512,7 +535,7 @@ void ReceiveUdp()
 
         if (autoSteerUdpData[0] == 0x80 && autoSteerUdpData[1] == 0x81 && autoSteerUdpData[2] == 0x7F) //Data
         {
-            if (autoSteerUdpData[3] == 0xFE)  //254
+            if (autoSteerUdpData[3] == 0xFE && Autosteer_running)  //254
             {
                 gpsSpeed = ((float)(autoSteerUdpData[5] | autoSteerUdpData[6] << 8)) * 0.1;
 
@@ -574,7 +597,7 @@ void ReceiveUdp()
                 PGN_253[PGN_253_Size] = CK_A;
 
                 //off to AOG
-                SendUdp(PGN_253, sizeof(PGN_253), ipDestination, portDestination);
+                SendUdp(PGN_253, sizeof(PGN_253), Eth_ipDestination, portDestination);
 
                 //Steer Data 2 -------------------------------------------------
                 if (steerConfig.PressureSensor || steerConfig.CurrentSensor)
@@ -595,7 +618,7 @@ void ReceiveUdp()
                         PGN_250[PGN_250_Size] = CK_A;
 
                         //off to AOG
-                        SendUdp(PGN_250, sizeof(PGN_250), ipDestination, portDestination);
+                        SendUdp(PGN_250, sizeof(PGN_250), Eth_ipDestination, portDestination);
                         aog2Count = 0;
                     }
                 }
@@ -605,7 +628,7 @@ void ReceiveUdp()
             }
 
             //steer settings
-            else if (autoSteerUdpData[3] == 0xFC)  //252
+            else if (autoSteerUdpData[3] == 0xFC && Autosteer_running)  //252
             {
                 //PID values
                 steerSettings.Kp = ((float)autoSteerUdpData[5]);   // read Kp from AgOpenGPS
@@ -634,7 +657,7 @@ void ReceiveUdp()
                 steerSettingsInit();
             }
 
-            else if (autoSteerUdpData[3] == 0xFB)  //251 FB - SteerConfig
+            else if (autoSteerUdpData[3] == 0xFB && Autosteer_running)  //251 FB - SteerConfig
             {
                 uint8_t sett = autoSteerUdpData[5]; //setting0
 
@@ -667,8 +690,10 @@ void ReceiveUdp()
                 steerConfigInit();
 
             }//end FB
-            else if (autoSteerUdpData[3] == 200 && Autosteer_running) // Hello from AgIO
+            else if (autoSteerUdpData[3] == 200) // Hello from AgIO
             {
+                if(Autosteer_running)
+                {
                 int16_t sa = (int16_t)(steerAngleActual * 100);
 
                 helloFromAutoSteer[5] = (uint8_t)sa;
@@ -678,8 +703,28 @@ void ReceiveUdp()
                 helloFromAutoSteer[8] = helloSteerPosition >> 8;
                 helloFromAutoSteer[9] = switchByte;
 
-                SendUdp(helloFromAutoSteer, sizeof(helloFromAutoSteer), ipDestination, portDestination);
+                SendUdp(helloFromAutoSteer, sizeof(helloFromAutoSteer), Eth_ipDestination, portDestination);
+                }
+                if(useBNO08x || useCMPS)
+                {
+                 SendUdp(helloFromIMU, sizeof(helloFromIMU), Eth_ipDestination, portDestination); 
+                }
             }
+
+            else if (autoSteerUdpData[3] == 201)
+            {
+             //make really sure this is the subnet pgn
+             if (autoSteerUdpData[4] == 5 && autoSteerUdpData[5] == 201 && autoSteerUdpData[6] == 201)
+             {
+              networkAddress.ipOne = autoSteerUdpData[7];
+              networkAddress.ipTwo = autoSteerUdpData[8];
+              networkAddress.ipThree = autoSteerUdpData[9];
+        
+              //save in EEPROM and restart
+              EEPROM.put(60, networkAddress);
+              SCB_AIRCR = 0x05FA0004; //Teensy Reset
+              }
+            }//end 201
 
             //whoami
             else if (autoSteerUdpData[3] == 202)
@@ -688,8 +733,8 @@ void ReceiveUdp()
                 if (autoSteerUdpData[4] == 3 && autoSteerUdpData[5] == 202 && autoSteerUdpData[6] == 202)
                 {
                     //hello from AgIO
-                    uint8_t scanReply[] = { 128, 129, 120, 203, 4,
-                        Eth_myip[0], Eth_myip[1], Eth_myip[2], 120, 23 };
+                    uint8_t scanReply[] = { 128, 129, Eth_myip[3], 203, 4,
+                        Eth_myip[0], Eth_myip[1], Eth_myip[2], Eth_myip[3], 23 };
 
                     //checksum
                     int16_t CK_A = 0;
@@ -706,9 +751,23 @@ void ReceiveUdp()
                     SendUdp(scanReply, sizeof(scanReply), ipDest, portDest);
                 }
             }
-        } //end if 80 81 7F
-    }
+        }
+    
+//XTE
+   if (autoSteerUdpData[3] == 233)  //XTE Data
+   {
+      static uint8_t hzCounter = 0;
+      hzCounter++;
+      if(hzCounter > 9)
+      {
+        XTE = (int16_t)(autoSteerUdpData[9] << 8) + autoSteerUdpData[8];
+        buildXTE(); 
+      }
+   }
+   
 }
+}
+
 #endif
 
 #ifdef ARDUINO_TEENSY41
@@ -728,4 +787,65 @@ void EncoderFunc()
     pulseCount++;
     encEnable = false;
   }
+}
+
+void buildXTE()
+{
+  strcpy(nmeaXTE, "");
+
+  strcat(nmeaXTE, "$GPXTE,");
+  
+  strcat(nmeaXTE, "A,A,");
+
+  metersXTE = abs(XTE * 0.001);
+  dtostrf(metersXTE, 4, 3, stringXTE);
+  strcat(nmeaXTE, stringXTE);
+  strcat(nmeaXTE, ",");
+
+  if(XTE < 0)
+  {
+     strcat(nmeaXTE, "R,");
+  }
+  else
+  {
+    strcat(nmeaXTE, "L,");
+  }
+  
+  strcat(nmeaXTE, "N*");
+
+  CalculateChecksum1();
+
+  strcat(nmeaXTE, "\r\n");
+
+  //Serial5.write(nmeaXTE);
+  Serial5.println(nmeaXTE);
+}
+
+void CalculateChecksum1()
+{
+  int16_t sum = 0;
+  int16_t inx = 0;
+  char tmp;
+
+  // The checksum calc starts after '$' and ends before '*'
+  for (inx = 1; inx < 200; inx++)
+  {
+    tmp = nmeaXTE[inx];
+
+    // * Indicates end of data and start of checksum
+    if (tmp == '*')
+    {
+      break;
+    }
+
+    sum ^= tmp;    // Build checksum
+  }
+
+  byte chk = (sum >> 4);
+  char hex[2] = { asciiHex[chk], 0 };
+  strcat(nmeaXTE, hex);
+
+  chk = (sum % 16);
+  char hex2[2] = { asciiHex[chk], 0 };
+  strcat(nmeaXTE, hex2);
 }
