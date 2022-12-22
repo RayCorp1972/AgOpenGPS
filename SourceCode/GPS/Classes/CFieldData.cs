@@ -118,7 +118,7 @@ namespace AgOpenGPS
             }
         }
 
-        public string WorkRateHectares => (mf.tool.toolWidth * mf.avgSpeed * 0.1).ToString("N1");
+        public string WorkRateHectares => (mf.tool.toolWidth * mf.avgSpeed * 0.1).ToString("N1"); // Use  for ratecontrol
         public string WorkRateAcres => (mf.tool.toolWidth * mf.avgSpeed * 0.2471).ToString("N1");
 
         //constructor

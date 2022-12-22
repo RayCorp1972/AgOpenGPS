@@ -118,6 +118,14 @@ char stringXTE[8];
 int XTE;
 float metersXTE;
 
+//Snelheid
+char gpsSnelheid[100];
+char stringSnelheid[8];
+int Snelheid;
+float metersSnelheid;
+String SnelheidTotaal;
+
+
 //On Off
 uint8_t guidanceStatus = 0;
 uint8_t prevGuidanceStatus = 0;
@@ -761,9 +769,21 @@ void ReceiveUdp()
       if(hzCounter > 9)
       {
         XTE = (int16_t)(autoSteerUdpData[9] << 8) + autoSteerUdpData[8];
-        buildXTE(); 
+        buildXTE();
+        
+         Snelheid = ((float)(autoSteerUdpData[5] | autoSteerUdpData[6] << 8)) * 0.1;
+           
+//         metersSnelheid = abs(Snelheid * 0.1);
+//         dtostrf(metersSnelheid, 4, 3, stringSnelheid);
+//         strcat(gpsSnelheid, stringSnelheid);
+//         strcat(gpsSnelheid, ",");
+      
+        Serial5.println(Snelheid);
+        
       }
    }
+
+   // Speed string to Serial5..check pgn
    
 }
 }
@@ -797,11 +817,14 @@ void buildXTE()  // XTE string builder
   
   strcat(nmeaXTE, "A,A,");
 
-  metersXTE = abs(XTE * 0.001);
+  metersXTE = abs(XTE * 0.001);  
   dtostrf(metersXTE, 4, 3, stringXTE);
   strcat(nmeaXTE, stringXTE);
   strcat(nmeaXTE, ",");
 
+ 
+  
+  
   if(XTE < 0)
   {
      strcat(nmeaXTE, "R,");
@@ -817,8 +840,9 @@ void buildXTE()  // XTE string builder
 
   strcat(nmeaXTE, "\r\n");
 
-  //Serial5.write(nmeaXTE);
+  
   Serial5.println(nmeaXTE);
+  
 }
 
 void CalculateChecksum1() // Calculation for XTE

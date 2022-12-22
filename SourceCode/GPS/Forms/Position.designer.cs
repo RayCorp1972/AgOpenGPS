@@ -651,11 +651,16 @@ namespace AgOpenGPS
             #region AutoSteer
 
             //preset the values
-            guidanceLineDistanceOff = 32000;
+            guidanceLineDistanceOff = 32000;  
 
             //Vehicle XTE
-            p_233.pgn[p_233.highVehXTE] = unchecked((byte)(0));
+            p_233.pgn[p_233.highVehXTE] = unchecked((byte)(0));  // Nakijken voor snelheid
             p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(0));
+            // Snelheid
+            p_233.pgn[p_233.speedHi] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 100.0) >> 8));
+            p_233.pgn[p_233.speedLo] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 100.0)));
+
+
 
             if (ct.isContourBtnOn)
             {
@@ -685,6 +690,8 @@ namespace AgOpenGPS
                     p_233.pgn[p_233.highVehXTE] = unchecked((byte)(guidanceLineDistanceOff >> 8));
                     p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(guidanceLineDistanceOff));
                 }
+
+                // Speed
             }
 
             // autosteer at full speed of updates
@@ -698,6 +705,7 @@ namespace AgOpenGPS
                 //fill up0 the appropriate arrays with new values
                 p_254.pgn[p_254.speedHi] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 10.0) >> 8));
                 p_254.pgn[p_254.speedLo] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 10.0)));
+                
                 //mc.machineControlData[mc.cnSpeed] = mc.autoSteerData[mc.sdSpeed];
 
                 //save distance for display
