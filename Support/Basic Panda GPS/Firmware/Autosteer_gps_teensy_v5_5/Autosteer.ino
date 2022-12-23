@@ -773,11 +773,11 @@ void ReceiveUdp()
         buildXTE();
 
         //**Speed Demo**
-        //Read speed, * 0.1, save in Snelheid as a float (this will be km/hr x.x
-        Snelheid = ((float)(autoSteerUdpData[5] | autoSteerUdpData[6] << 8)) * 0.1;
-
+        //Read speed, * 0.01, save in Snelheid as a float (this will be m/hr x.xx)
+        Snelheid = ((float)(autoSteerUdpData[5] | autoSteerUdpData[6] << 8)) * 0.01;
+        
         //Copy the speed as a float into a string. (float, min digits, digits after decimal, string to save to)
-        dtostrf(Snelheid, 2, 1, stringSnelheid);  
+        dtostrf(Snelheid, 3, 2, stringSnelheid);  
 
         //Clear the big string & refresh
         strcpy(gpsSnelheid, "");
@@ -785,11 +785,10 @@ void ReceiveUdp()
         //Add the speed string to the big string
         strcat(gpsSnelheid, "Speed = ");
         strcat(gpsSnelheid, stringSnelheid);
-        strcat(gpsSnelheid, " km/hr");
+        strcat(gpsSnelheid, " m/hr");
         strcat(gpsSnelheid, "\r\n");
 
-        Serial5.write(gpsSnelheid, sizeof(gpsSnelheid));
-        
+        Serial5.print(gpsSnelheid); 
       }
    }
 
