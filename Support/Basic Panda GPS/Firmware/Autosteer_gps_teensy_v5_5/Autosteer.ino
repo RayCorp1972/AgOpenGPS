@@ -770,15 +770,14 @@ void ReceiveUdp()
       {
         XTE = (int16_t)(autoSteerUdpData[9] << 8) + autoSteerUdpData[8];
         buildXTE();
-        
-         Snelheid = ((float)(autoSteerUdpData[5] | autoSteerUdpData[6] << 8)) * 0.1;
+        Snelheid = (int16_t)(autoSteerUdpData[5] | autoSteerUdpData[6] << 8) * 0.1;
            
-//         metersSnelheid = abs(Snelheid * 0.1);
-//         dtostrf(metersSnelheid, 4, 3, stringSnelheid);
-//         strcat(gpsSnelheid, stringSnelheid);
-//         strcat(gpsSnelheid, ",");
+         metersSnelheid = abs(Snelheid * 0.1);
+         dtostrf(metersSnelheid, 0, 2, stringSnelheid);
+         strcat(gpsSnelheid, stringSnelheid);
+         strcat(gpsSnelheid, ",");
       
-        Serial5.println(Snelheid);
+           Serial5.println(gpsSnelheid);
         
       }
    }

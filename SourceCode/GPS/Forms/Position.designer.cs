@@ -656,9 +656,10 @@ namespace AgOpenGPS
             //Vehicle XTE
             p_233.pgn[p_233.highVehXTE] = unchecked((byte)(0));  // Nakijken voor snelheid
             p_233.pgn[p_233.lowVehXTE] = unchecked((byte)(0));
+            
             // Snelheid
-            p_233.pgn[p_233.speedHi] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 100.0) >> 8));
-            p_233.pgn[p_233.speedLo] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 100.0)));
+            p_233.pgn[p_233.speedHi] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 10.0) >> 8));
+            p_233.pgn[p_233.speedLo] = unchecked((byte)((int)(Math.Abs(avgSpeed) * 10.0)));
 
 
 
