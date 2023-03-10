@@ -1057,7 +1057,6 @@
     <None Include="btnImages\ImplementSettings.png" />
     <None Include="btnImages\ManualOff.png" />
     <None Include="btnImages\ManualOn.png" />
-    <Compile Include="btnImages\JobActive.png" />
     <None Include="btnImages\FileSave.png" />
     <None Include="btnImages\Play.png" />
     <None Include="btnImages\Stop.png" />
