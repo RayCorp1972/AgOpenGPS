@@ -15,6 +15,10 @@ namespace AgOpenGPS
         private double fovy = 0.7;
         private double camDistanceFactor = -4;
 
+        // Plough variables
+        public Int16 ploughWidth = 0;
+        public byte ploughMode = 255;
+
         int mouseX = 0, mouseY = 0;
         public int steerModuleConnectedCounter = 0;
 
@@ -372,6 +376,10 @@ namespace AgOpenGPS
 
                     //if (isCompassOn) DrawCompass();
                     DrawCompassText();
+
+                    // Plough Text in MainGL
+
+                    if (isPlougOn) Plougcontrol();
 
                     if (isSpeedoOn) DrawSpeedo();
 
@@ -2538,6 +2546,30 @@ namespace AgOpenGPS
                     lblGuidanceLine.Visible = false;
                 }
             }
+        }
+
+        private void Plougcontrol()
+        {
+
+            int center = oglMain.Width / -2 + 10;
+            font.DrawText(center - 8, 40, "^", 0.8);
+            //Plough text // 
+            GL.Color3(0.9652f, 0.9752f, 0.1f); //GEEl
+                                               //GL.Color3(0.9752f, 0.752f, 0.40f);
+            font.DrawText(center + 10, 150, "Ploeg Besturing", .9); // 10-positie horizontaal // 150 positie verticaal // .9 is grote
+            font.DrawText(center + 10, 180, "Ploegbreedte: " + ploughWidth.ToString() + "cm", 0.7);
+            font.DrawText(center + 10, 240, "Mode " + ploughMode.ToString(), 0.7);
+            if (ploughMode == 0) font.DrawText(center + 10, 210, "Sectie Uit", 0.7);
+            else if (ploughMode == 1) font.DrawText(center + 10, 210, "Auto Config Uit", 1);
+            else if (ploughMode == 2) font.DrawText(center + 10, 210, "Auto Switch Uit", 1);
+            else if (ploughMode == 3) font.DrawText(center + 10, 210, "Vast", 1);
+            else if (ploughMode == 4) font.DrawText(center + 10, 210, "Breder", 1);
+            else if (ploughMode == 5) font.DrawText(center + 10, 210, "Max", 1);
+            else if (ploughMode == 6) font.DrawText(center + 10, 210, "Smaller", 1);
+            else if (ploughMode == 7) font.DrawText(center + 10, 210, "Min", 1);
+            else if (ploughMode == 8) font.DrawText(center + 10, 210, "Geen lijn", 1);
+
+
         }
 
         private void CalcFrustum()

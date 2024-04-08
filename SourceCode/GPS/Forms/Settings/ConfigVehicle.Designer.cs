@@ -443,9 +443,9 @@ namespace AgOpenGPS
             mf.isBrightnessOn = chkDisplayBrightness.Checked;
             mf.isSvennArrowOn = chkSvennArrow.Checked;
             mf.isLogElevation = chkDisplayLogElevation.Checked;
-
+            mf.isPlougOn = chbPloeg.Checked;
             //mf.timeToShowMenus = (int)nudMenusOnTime.Value;
-
+            Properties.Settings.Default.setDisplay_isPlougOn = mf.isPlougOn;
             Properties.Settings.Default.setDisplay_isBrightnessOn = mf.isBrightnessOn;
             Properties.Settings.Default.setDisplay_isTextureOn = mf.isTextureOn;
             Properties.Settings.Default.setMenu_isGridOn = mf.isGridOn;

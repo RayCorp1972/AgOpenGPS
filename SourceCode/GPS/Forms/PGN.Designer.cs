@@ -203,10 +203,11 @@ namespace AgOpenGPS
             public int lowerTime = 6;
             public int enableHyd = 7;
             public int set0 = 8;
-            public int user1 = 9;
-            public int user2 = 10;
-            public int user3 = 11;
-            public int user4  = 12;
+            public int user1 = 9;       //Target width (+200cm)
+            public int user2 = 10;      //Calabration command instrction
+            public int user3 = 11;      //Set value L
+            public int user4 = 12;      //Set value H
+            //public int user5 = 1;      //Ploug mode 
 
             // PGN  - 127.239 0x7FEF
             int crc = 0;
@@ -222,6 +223,7 @@ namespace AgOpenGPS
                 pgn[user2] = Properties.Settings.Default.setArdMac_user2;
                 pgn[user3] = Properties.Settings.Default.setArdMac_user3;
                 pgn[user4] = Properties.Settings.Default.setArdMac_user4;
+                //pgn[user5] = Properties.Settings.Default.setArdMac_user5;
             }
 
             public void MakeCRC()
