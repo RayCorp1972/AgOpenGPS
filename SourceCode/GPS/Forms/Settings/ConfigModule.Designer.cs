@@ -54,10 +54,10 @@ namespace AgOpenGPS
             nudRaiseTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydRaiseTime;
             nudLowerTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydLowerTime;
 
-            nudUser1.Value = Properties.Settings.Default.setArdMac_user1;
-            nudUser2.Value = Properties.Settings.Default.setArdMac_user2;
+            nudUser1_old.Value = Properties.Settings.Default.setArdMac_user1;
+            nudUser2_Old.Value = Properties.Settings.Default.setArdMac_user2;
             nudUser3.Value = Properties.Settings.Default.setArdMac_user3;
-            nudUser4.Value = Properties.Settings.Default.setArdMac_user4;
+            nudUser4_old.Value = Properties.Settings.Default.setArdMac_user4;
 
             btnSendMachinePGN.Focus();
 
@@ -161,10 +161,10 @@ namespace AgOpenGPS
             Properties.Settings.Default.setArdMac_hydRaiseTime = (byte)nudRaiseTime.Value;
             Properties.Settings.Default.setArdMac_hydLowerTime = (byte)nudLowerTime.Value;
 
-            Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1.Value;
-            Properties.Settings.Default.setArdMac_user2 = (byte)nudUser2.Value;
+            Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1_old.Value;
+            Properties.Settings.Default.setArdMac_user2 = (byte)nudUser2_Old.Value;
             Properties.Settings.Default.setArdMac_user3 = (byte)nudUser3.Value;
-            Properties.Settings.Default.setArdMac_user4 = (byte)nudUser4.Value;
+            Properties.Settings.Default.setArdMac_user4 = (byte)nudUser4_old.Value;
 
             Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead = (double)nudHydLiftLookAhead.Value;
             mf.vehicle.hydLiftLookAheadTime = Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead;
@@ -173,10 +173,10 @@ namespace AgOpenGPS
             mf.p_238.pgn[mf.p_238.raiseTime] = (byte)nudRaiseTime.Value;
             mf.p_238.pgn[mf.p_238.lowerTime] = (byte)nudLowerTime.Value;
 
-            mf.p_238.pgn[mf.p_238.user1] = (byte)nudUser1.Value;
-            mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2.Value;
+            mf.p_238.pgn[mf.p_238.user1] = (byte)nudUser1_old.Value;
+            mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2_Old.Value;
             mf.p_238.pgn[mf.p_238.user3] = (byte)nudUser3.Value;
-            mf.p_238.pgn[mf.p_238.user4] = (byte)nudUser4.Value;
+            mf.p_238.pgn[mf.p_238.user4] = (byte)nudUser4_old.Value;
 
             mf.SendPgnToLoop(mf.p_238.pgn);
             pboxSendMachine.Visible = false;
