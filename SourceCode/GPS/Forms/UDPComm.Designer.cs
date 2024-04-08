@@ -248,6 +248,13 @@ namespace AgOpenGPS
                             break;
                         }
 
+                    case 0xED: //return from machine module (Plough)
+                        {
+                            ploughWidth = (Int16)((data[6] << 8) + data[5]);
+                            ploughMode = data[7];
+                        }
+                        break;
+
                     case 250:
                         {                            
                             if (data.Length != 14)
