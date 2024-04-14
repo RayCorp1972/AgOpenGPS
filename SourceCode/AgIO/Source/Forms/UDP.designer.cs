@@ -215,6 +215,8 @@ namespace AgIO
                             SendSteerModulePort(data, data.Length);
                             break;                        }
 
+
+
                     case 0xEE: //238 machine config
                         {
                             SendMachineModulePort(data, data.Length);
@@ -228,7 +230,7 @@ namespace AgIO
                             SendSteerModulePort(data, data.Length);
                             break;
                         }
-
+                  
 
                 }
             }                            

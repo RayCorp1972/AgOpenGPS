@@ -252,6 +252,7 @@ namespace AgOpenGPS
                         {
                             ploughWidth = (Int16)((data[6] << 8) + data[5]);
                             ploughMode = data[7];
+                            deadBand = data[8];
                         }
                         break;
 

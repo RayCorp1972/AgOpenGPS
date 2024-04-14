@@ -16,6 +16,7 @@ namespace AgOpenGPS
         // Plough control
         public Int16 ploughWidth = 0;
         public byte ploughMode = 255;
+        public Int16 deadBand = 0;
 
 
         //constructor
@@ -352,6 +353,14 @@ namespace AgOpenGPS
         {
             mf.p_238.pgn[mf.p_238.user2] = 222; //Cal max command
             btnSendMachinePGN.PerformClick();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveSettingsMachine();
+
+            Properties.Settings.Default.Save();
+
         }
     }
 }

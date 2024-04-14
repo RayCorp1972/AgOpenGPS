@@ -2951,5 +2951,17 @@ namespace AgOpenGPS.Properties {
                 this["setDisplay_isPlougOn"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public byte setArdMac_user5 {
+            get {
+                return ((byte)(this["setArdMac_user5"]));
+            }
+            set {
+                this["setArdMac_user5"] = value;
+            }
+        }
     }
 }

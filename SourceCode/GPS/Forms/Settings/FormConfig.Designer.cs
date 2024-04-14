@@ -443,13 +443,13 @@
             this.btnSendRelayConfigPGN = new System.Windows.Forms.Button();
             this.tabAMachine = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.nudDeadzone = new AgOpenGPS.NudlessNumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
             this.label179 = new System.Windows.Forms.Label();
             this.label180 = new System.Windows.Forms.Label();
             this.btn_calMax = new System.Windows.Forms.Button();
             this.nudUser4 = new AgOpenGPS.NudlessNumericUpDown();
             this.btn_calMin = new System.Windows.Forms.Button();
-            this.nudUser2 = new AgOpenGPS.NudlessNumericUpDown();
             this.label181 = new System.Windows.Forms.Label();
             this.label182 = new System.Windows.Forms.Label();
             this.nudUser1 = new AgOpenGPS.NudlessNumericUpDown();
@@ -470,6 +470,7 @@
             this.label67 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.pboxSendMachine = new System.Windows.Forms.PictureBox();
+            this.nudUser2 = new AgOpenGPS.NudlessNumericUpDown();
             this.cboxMachInvertRelays = new System.Windows.Forms.CheckBox();
             this.btnSendMachinePGN = new System.Windows.Forms.Button();
             this.nudUser3 = new AgOpenGPS.NudlessNumericUpDown();
@@ -674,8 +675,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pboxSendRelay)).BeginInit();
             this.tabAMachine.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDeadzone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser1)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHydLiftLookAhead)).BeginInit();
@@ -684,6 +685,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRaiseTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxSendMachine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser3)).BeginInit();
             this.tabTram.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTramWidth)).BeginInit();
@@ -7960,6 +7962,7 @@
             this.tabAMachine.Controls.Add(this.label67);
             this.tabAMachine.Controls.Add(this.label56);
             this.tabAMachine.Controls.Add(this.pboxSendMachine);
+            this.tabAMachine.Controls.Add(this.nudUser2);
             this.tabAMachine.Controls.Add(this.cboxMachInvertRelays);
             this.tabAMachine.Controls.Add(this.btnSendMachinePGN);
             this.tabAMachine.Controls.Add(this.nudUser3);
@@ -7973,13 +7976,13 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.nudDeadzone);
             this.groupBox5.Controls.Add(this.button2);
             this.groupBox5.Controls.Add(this.label179);
             this.groupBox5.Controls.Add(this.label180);
             this.groupBox5.Controls.Add(this.btn_calMax);
             this.groupBox5.Controls.Add(this.nudUser4);
             this.groupBox5.Controls.Add(this.btn_calMin);
-            this.groupBox5.Controls.Add(this.nudUser2);
             this.groupBox5.Controls.Add(this.label181);
             this.groupBox5.Controls.Add(this.label182);
             this.groupBox5.Controls.Add(this.nudUser1);
@@ -7992,6 +7995,30 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ploeg besturing";
             // 
+            // nudDeadzone
+            // 
+            this.nudDeadzone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudDeadzone.BackColor = System.Drawing.Color.AliceBlue;
+            this.nudDeadzone.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDeadzone.InterceptArrowKeys = false;
+            this.nudDeadzone.Location = new System.Drawing.Point(64, 420);
+            this.nudDeadzone.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudDeadzone.Name = "nudDeadzone";
+            this.nudDeadzone.ReadOnly = true;
+            this.nudDeadzone.Size = new System.Drawing.Size(114, 52);
+            this.nudDeadzone.TabIndex = 524;
+            this.nudDeadzone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudDeadzone.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudDeadzone.Click += new System.EventHandler(this.nudUser5_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(64, 482);
@@ -8001,6 +8028,7 @@
             this.button2.TabIndex = 522;
             this.button2.Text = "Set";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label179
             // 
@@ -8069,30 +8097,6 @@
             this.btn_calMin.Text = "Cal Min (cm)";
             this.btn_calMin.UseVisualStyleBackColor = true;
             this.btn_calMin.Click += new System.EventHandler(this.btn_calMin_Click);
-            // 
-            // nudUser2
-            // 
-            this.nudUser2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudUser2.BackColor = System.Drawing.Color.AliceBlue;
-            this.nudUser2.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudUser2.InterceptArrowKeys = false;
-            this.nudUser2.Location = new System.Drawing.Point(63, 425);
-            this.nudUser2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nudUser2.Name = "nudUser2";
-            this.nudUser2.ReadOnly = true;
-            this.nudUser2.Size = new System.Drawing.Size(114, 52);
-            this.nudUser2.TabIndex = 486;
-            this.nudUser2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudUser2.Value = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nudUser2.Click += new System.EventHandler(this.nudUser2_Click);
             // 
             // label181
             // 
@@ -8412,6 +8416,30 @@
             this.pboxSendMachine.TabIndex = 483;
             this.pboxSendMachine.TabStop = false;
             this.pboxSendMachine.Visible = false;
+            // 
+            // nudUser2
+            // 
+            this.nudUser2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudUser2.BackColor = System.Drawing.Color.AliceBlue;
+            this.nudUser2.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudUser2.InterceptArrowKeys = false;
+            this.nudUser2.Location = new System.Drawing.Point(228, 450);
+            this.nudUser2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudUser2.Name = "nudUser2";
+            this.nudUser2.ReadOnly = true;
+            this.nudUser2.Size = new System.Drawing.Size(114, 52);
+            this.nudUser2.TabIndex = 486;
+            this.nudUser2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudUser2.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudUser2.Click += new System.EventHandler(this.nudUser2_Click);
             // 
             // cboxMachInvertRelays
             // 
@@ -10118,8 +10146,8 @@
             this.tabAMachine.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDeadzone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -10129,6 +10157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRaiseTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxSendMachine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser3)).EndInit();
             this.tabTram.ResumeLayout(false);
             this.tabTram.PerformLayout();
@@ -10676,5 +10705,6 @@
         private System.Windows.Forms.Label label182;
         private NudlessNumericUpDown nudUser1;
         private System.Windows.Forms.CheckBox chbPloeg;
+        private NudlessNumericUpDown nudDeadzone;
     }
 }

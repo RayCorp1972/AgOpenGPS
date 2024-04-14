@@ -838,6 +838,11 @@ namespace AgOpenGPS
                 //mc.autoSteerData[7] = unchecked((byte)(guidanceLineDistanceOff >> 8));
                 //mc.autoSteerData[8] = unchecked((byte)(guidanceLineDistanceOff));
 
+                short machineLineDistance = guidanceLineDistanceOff;
+                if (!ABLine.isHeadingSameWay) machineLineDistance *= -1;
+                p_239.pgn[p_239.lineDistanceH] = unchecked((byte)(machineLineDistance >> 8));
+                p_239.pgn[p_239.lineDistanceL] = unchecked((byte)(machineLineDistance));
+
                 //convert to cm from mm and divide by 2 - lightbar
                 int distanceX2;
                 if (guidanceLineDistanceOff == 32020 || guidanceLineDistanceOff == 32000)
@@ -853,6 +858,7 @@ namespace AgOpenGPS
                 }
 
                 p_254.pgn[p_254.lineDistance] = unchecked((byte)distanceX2);
+                
 
                 if (!timerSim.Enabled)
                 {

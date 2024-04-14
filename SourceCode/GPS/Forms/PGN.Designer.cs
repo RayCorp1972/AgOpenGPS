@@ -152,8 +152,8 @@ namespace AgOpenGPS
             public int speed = 6;
             public int hydLift = 7;
             public int tram = 8;
-            public int geoStop = 9; //out of bounds etc
-            //public int  = 10;
+            public int lineDistanceL = 9;       //extra mm +/- needed on working width (mm to the line, *-1 if heading is not same way as ABline)
+            public int lineDistanceH = 10;
             public int sc1to8 = 11;
             public int sc9to16 = 12;
 
@@ -198,7 +198,7 @@ namespace AgOpenGPS
             /// PGN - 238 - EE 
             /// raiseTime=5  lowerTime=6   enableHyd= 7 set0 = 8
             /// </summary>
-            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xEE, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
+            public byte[] pgn = new byte[] { 0x80, 0x81, 0x7f, 0xEE, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xCC };
             public int raiseTime = 5;
             public int lowerTime = 6;
             public int enableHyd = 7;
@@ -207,7 +207,7 @@ namespace AgOpenGPS
             public int user2 = 10;      //Calabration command instrction
             public int user3 = 11;      //Set value L
             public int user4 = 12;      //Set value H
-            //public int user5 = 1;      //Ploug mode 
+            public int user5 = 13;      //deadBand
 
             // PGN  - 127.239 0x7FEF
             int crc = 0;
@@ -223,7 +223,7 @@ namespace AgOpenGPS
                 pgn[user2] = Properties.Settings.Default.setArdMac_user2;
                 pgn[user3] = Properties.Settings.Default.setArdMac_user3;
                 pgn[user4] = Properties.Settings.Default.setArdMac_user4;
-                //pgn[user5] = Properties.Settings.Default.setArdMac_user5;
+                pgn[user5] = Properties.Settings.Default.setArdMac_user5;
             }
 
             public void MakeCRC()

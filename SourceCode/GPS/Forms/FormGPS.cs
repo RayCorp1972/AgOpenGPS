@@ -350,6 +350,13 @@ namespace AgOpenGPS
 
         private void FormGPS_Load(object sender, EventArgs e)
         {
+            var form = new FormAkkoord(this);
+            {
+                form.ShowDialog(this);
+            }
+
+
+
             this.MouseWheel += ZoomByMouseWheel;
 
             //start udp server is required
@@ -523,19 +530,19 @@ namespace AgOpenGPS
 
             hotkeys = Properties.Settings.Default.setKey_hotkeys.ToCharArray();
 
-            if (!isTermsAccepted)
-            {
-                if (!Properties.Settings.Default.setDisplay_isTermsAccepted)
-                {
-                    using (var form = new Form_First(this))
-                    {
-                        if (form.ShowDialog(this) != DialogResult.OK)
-                        {
-                            Close();
-                        }
-                    }
-                }
-            }
+            //if (!isTermsAccepted)
+            //{
+            //    if (!Properties.Settings.Default.setDisplay_isTermsAccepted)
+            //    {
+            //        using (var form = new Form_First(this))
+            //        {
+            //            if (form.ShowDialog(this) != DialogResult.OK)
+            //            {
+            //                Close();
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private void FormGPS_FormClosing(object sender, FormClosingEventArgs e)

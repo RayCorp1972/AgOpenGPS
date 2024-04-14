@@ -51,13 +51,24 @@ namespace AgOpenGPS
                 nudRaiseTime.Enabled = false;
             }
 
+           // nudHydLiftLookAhead.Visible = false;
+           // label69.Visible = false;
+           // nudUser2.Visible = false;
+           // //label149.Visible = false;
+           // nudUser3.Visible = false;
+           //// label150.Visible = false;
+           // groupBox4.Visible = false;
+
             nudRaiseTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydRaiseTime;
             nudLowerTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydLowerTime;
 
-            nudUser1.Value = 200 + Properties.Settings.Default.setArdMac_user1;
-            nudUser2.Value = Properties.Settings.Default.setArdMac_user2;
-            nudUser3.Value = Properties.Settings.Default.setArdMac_user3;
-            nudUser4.Value = Properties.Settings.Default.setArdMac_user4;
+
+            nudUser1.Value = 0;
+            nudUser2.Value = 0;
+            nudUser3.Value = 0;
+            nudUser4.Value = 0;
+            
+            mf.p_238.pgn[mf.p_238.user2] = 0;
 
             btnSendMachinePGN.Focus();
 
@@ -123,6 +134,15 @@ namespace AgOpenGPS
                 pboxSendMachine.Visible = true;
             }
         }
+
+        private void nudUser5_Click(object sender, EventArgs e)
+        {
+            if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
+            {
+                pboxSendMachine.Visible = true;
+
+            }
+        }
         private void cboxIsHydOn_CheckStateChanged(object sender, EventArgs e)
         {
             if (cboxIsHydOn.Checked)
@@ -166,7 +186,7 @@ namespace AgOpenGPS
             Properties.Settings.Default.setArdMac_user2 = 0;
             Properties.Settings.Default.setArdMac_user3 = 0;
             Properties.Settings.Default.setArdMac_user4 = 0;
-            //Properties.Settings.Default.setArdMac_user5 = 0;
+            Properties.Settings.Default.setArdMac_user5 = 0;
 
             Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead = (double)nudHydLiftLookAhead.Value;
             mf.vehicle.hydLiftLookAheadTime = Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead;
@@ -175,13 +195,13 @@ namespace AgOpenGPS
             mf.p_238.pgn[mf.p_238.raiseTime] = (byte)nudRaiseTime.Value;
             mf.p_238.pgn[mf.p_238.lowerTime] = (byte)nudLowerTime.Value;
 
-            mf.p_238.pgn[mf.p_238.user1] = (byte)(nudUser1.Value - 100);        //Target width cm 
-                                                                                //mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2.Value;              //Calabration instruction
+            mf.p_238.pgn[mf.p_238.user1] = (byte)(nudUser1.Value);        //Target width cm 
+                                                                               //mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2.Value;              //Calabration instruction
             int calValue = (int)nudUser4.Value;
             mf.p_238.pgn[mf.p_238.user3] = (byte)calValue;                      //Calabration value L
             mf.p_238.pgn[mf.p_238.user4] = (byte)(calValue >> 8);               //Calabration value H
-                                                                                // mf.p_238.pgn[mf.p_238.user5] = (byte)nudDeadzone.Value;
-
+            mf.p_238.pgn[mf.p_238.user5] = (byte)nudDeadzone.Value;
+            
             mf.SendPgnToLoop(mf.p_238.pgn);
             pboxSendMachine.Visible = false;
             mf.p_238.pgn[mf.p_238.user2] = 0;                                   //mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2.Value;              //Calabration instruction

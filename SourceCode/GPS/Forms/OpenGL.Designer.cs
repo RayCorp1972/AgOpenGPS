@@ -18,6 +18,7 @@ namespace AgOpenGPS
         // Plough variables
         public Int16 ploughWidth = 0;
         public byte ploughMode = 255;
+        public byte deadBand = 0;
 
         int mouseX = 0, mouseY = 0;
         public int steerModuleConnectedCounter = 0;
@@ -438,7 +439,7 @@ namespace AgOpenGPS
                     {
                         oglBack.Refresh();
 
-                        p_239.pgn[p_239.geoStop] = mc.isOutOfBounds ? (byte)1 : (byte)0;
+                        //p_239.pgn[p_239.geoStop] = mc.isOutOfBounds ? (byte)1 : (byte)0;
 
                         SendPgnToLoop(p_239.pgn);
 
@@ -2550,7 +2551,7 @@ namespace AgOpenGPS
 
         private void Plougcontrol()
         {
-
+            
             int center = oglMain.Width / -2 + 10;
             font.DrawText(center - 8, 40, "^", 0.8);
             //Plough text // 
@@ -2558,7 +2559,9 @@ namespace AgOpenGPS
                                                //GL.Color3(0.9752f, 0.752f, 0.40f);
             font.DrawText(center + 10, 150, "Ploeg Besturing", .9); // 10-positie horizontaal // 150 positie verticaal // .9 is grote
             font.DrawText(center + 10, 180, "Ploegbreedte: " + ploughWidth.ToString() + "cm", 0.7);
-            font.DrawText(center + 10, 240, "Mode " + ploughMode.ToString(), 0.7);
+            font.DrawText(center + 10, 240, "Deadzone: " + deadBand.ToString() + "cm", 0.7);
+            //font.DrawText(center + 10, 240, "Mode " + ploughMode.ToString(), 0.7);//Testing
+            //font.DrawText(center + 10, 280, "Line offset " + (vehicle.modeActualXTE * 100).ToString(), 0.7);Testing
             if (ploughMode == 0) font.DrawText(center + 10, 210, "Sectie Uit", 0.7);
             else if (ploughMode == 1) font.DrawText(center + 10, 210, "Auto Config Uit", 1);
             else if (ploughMode == 2) font.DrawText(center + 10, 210, "Auto Switch Uit", 1);
