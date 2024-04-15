@@ -63,11 +63,12 @@ namespace AgOpenGPS
             nudLowerTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydLowerTime;
 
 
-            nudUser1.Value = 0;
+            nudUser1.Value = (decimal)Properties.Settings.Default.setArdMac_user1;
             nudUser2.Value = 0;
             nudUser3.Value = 0;
             nudUser4.Value = 0;
-            
+            nudDeadzone.Value = (decimal)Properties.Settings.Default.setArdMac_user5;
+
             mf.p_238.pgn[mf.p_238.user2] = 0;
 
             btnSendMachinePGN.Focus();
@@ -182,11 +183,11 @@ namespace AgOpenGPS
             Properties.Settings.Default.setArdMac_hydLowerTime = (byte)nudLowerTime.Value;
 
 
-            Properties.Settings.Default.setArdMac_user1 = 0;
+            Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1.Value;
             Properties.Settings.Default.setArdMac_user2 = 0;
             Properties.Settings.Default.setArdMac_user3 = 0;
             Properties.Settings.Default.setArdMac_user4 = 0;
-            Properties.Settings.Default.setArdMac_user5 = 0;
+            Properties.Settings.Default.setArdMac_user5 = (byte)nudDeadzone.Value;
 
             Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead = (double)nudHydLiftLookAhead.Value;
             mf.vehicle.hydLiftLookAheadTime = Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead;
