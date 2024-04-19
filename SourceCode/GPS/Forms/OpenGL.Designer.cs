@@ -2551,28 +2551,69 @@ namespace AgOpenGPS
 
         private void Plougcontrol()
         {
+
+            String PloughControl = (gStr.gsPloughControl);
+            String DesiredPloughWidth = (gStr.gsDesiredPloughWidth);
+            String CurrentPloughWidth = (gStr.gsCurrentPloughWidth);
+            String Deadzone = (gStr.gsDeadzoneinmm);
+            String AutoConfig = (gStr.gsAutoConfigOff);
+            String AutoSwitch = (gStr.gsAutoSwitchOff);
+            String Hold = (gStr.gsHoldPlough);
+            String Wider = (gStr.gsWider);
+            String Max = (gStr.gsMax);
+            String Min = (gStr.gsMin);
+            String Smaller = (gStr.gsSmaller);
+            String Abline = (gStr.gsNoline);
+            String SectionOff = (gStr.gsSectionoff);
+
             
             int center = oglMain.Width / -2 + 10;
             font.DrawText(center - 8, 40, "^", 0.8);
-            //Plough text // 
-            GL.Color3(0.9652f, 0.9752f, 0.1f); //GEEl
-                                               //GL.Color3(0.9752f, 0.752f, 0.40f);
-            font.DrawText(center + 10, 150, "Ploeg Besturing", .9); // 10-positie horizontaal // 150 positie verticaal // .9 is grote
-            font.DrawText(center + 10, 180, "Ploegbreedte: " + ploughWidth.ToString() + "cm", 0.7);
-            font.DrawText(center + 10, 240, "Deadzone: " + deadBand.ToString() + "cm", 0.7);
-            //font.DrawText(center + 10, 240, "Mode " + ploughMode.ToString(), 0.7);//Testing
-            //font.DrawText(center + 10, 280, "Line offset " + (vehicle.modeActualXTE * 100).ToString(), 0.7);Testing
-            if (ploughMode == 0) font.DrawText(center + 10, 210, "Sectie Uit", 0.7);
-            else if (ploughMode == 1) font.DrawText(center + 10, 210, "Auto Config Uit", 1);
-            else if (ploughMode == 2) font.DrawText(center + 10, 210, "Auto Switch Uit", 1);
-            else if (ploughMode == 3) font.DrawText(center + 10, 210, "Vast", 1);
-            else if (ploughMode == 4) font.DrawText(center + 10, 210, "Breder", 1);
-            else if (ploughMode == 5) font.DrawText(center + 10, 210, "Max", 1);
-            else if (ploughMode == 6) font.DrawText(center + 10, 210, "Smaller", 1);
-            else if (ploughMode == 7) font.DrawText(center + 10, 210, "Min", 1);
-            else if (ploughMode == 8) font.DrawText(center + 10, 210, "Geen lijn", 1);
+            GL.Color3(0.9652f, 0.9752f, 0.1f); //Yellow
+                                               
+            font.DrawText(center + 10, 150, PloughControl, .9); // 
+            font.DrawText(center + 10, 180, DesiredPloughWidth + ": " + (decimal)Properties.Settings.Default.setArdMac_user1 + "cm", 0.7);
+            font.DrawText(center + 10, 210, CurrentPloughWidth + ": " + ploughWidth.ToString() + "cm", 0.7);
+            font.DrawText(center + 10, 240, Deadzone + ": " + (decimal)Properties.Settings.Default.setArdMac_user5 + "mm", 0.7);
+            
+            if (ploughMode == 0) font.DrawText(center + 10, 270, SectionOff, 0.7);
+            else if (ploughMode == 1) font.DrawText(center + 10, 270, AutoConfig, 1);
+            else if (ploughMode == 2) font.DrawText(center + 10, 270, AutoSwitch, 1);
+            else if (ploughMode == 3) font.DrawText(center + 10, 270, Hold, 1);
+            else if (ploughMode == 4) font.DrawText(center + 10, 270, Wider, 1);
+            else if (ploughMode == 5) font.DrawText(center + 10, 270, Max, 1);
+            else if (ploughMode == 6) font.DrawText(center + 10, 270, Smaller, 1);
+            else if (ploughMode == 7) font.DrawText(center + 10, 270, Min, 1);
+            else if (ploughMode == 8) font.DrawText(center + 10, 270, Abline, 1);
+            //DrawPlough();
 
+        }
+        private void DrawPlough()
+        {
+            int center1 = oglMain.Width / -2 + 10;
+            font.DrawText(center1 - 8, 250, "^", 0.8);
+            GL.Color3(0.90f, 0.90f, 0.93f);
 
+            
+
+            GL.Begin(PrimitiveType.Quads); // Build Quad From A Triangle Strip
+            {
+                GL.TexCoord2(0, 0); GL.Vertex2(center1, 50); // 
+                GL.TexCoord2(1, 0); GL.Vertex2(center1 + 32, 50); // 
+                GL.TexCoord2(1, 1); GL.Vertex2(center1 + 32, 82); // 
+                GL.TexCoord2(0, 1); GL.Vertex2(center1, 82); //
+            }
+            GL.End();
+
+            GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomOut48]);
+            GL.Begin(PrimitiveType.Quads); // Build Quad From A Triangle Strip
+            {
+                GL.TexCoord2(0, 0); GL.Vertex2(center1, 150); // 
+                GL.TexCoord2(1, 0); GL.Vertex2(center1 + 32, 150); // 
+                GL.TexCoord2(1, 1); GL.Vertex2(center1 + 32, 182); // 
+                GL.TexCoord2(0, 1); GL.Vertex2(center1, 182); //
+            }
+            GL.End();
         }
 
         private void CalcFrustum()

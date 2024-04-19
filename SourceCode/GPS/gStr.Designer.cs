@@ -19,7 +19,7 @@ namespace AgOpenGPS {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class gStr {
@@ -133,6 +133,15 @@ namespace AgOpenGPS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto lift Off.
+        /// </summary>
+        public static string gsAutoConfigOff {
+            get {
+                return ResourceManager.GetString("gsAutoConfigOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto Steer Configuration.
         /// </summary>
         public static string gsAutoSteerConfiguration {
@@ -147,6 +156,15 @@ namespace AgOpenGPS {
         public static string gsAutoSteerPort {
             get {
                 return ResourceManager.GetString("gsAutoSteerPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Plough Switch Off.
+        /// </summary>
+        public static string gsAutoSwitchOff {
+            get {
+                return ResourceManager.GetString("gsAutoSwitchOff", resourceCulture);
             }
         }
         
@@ -340,6 +358,15 @@ namespace AgOpenGPS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Plough Width.
+        /// </summary>
+        public static string gsCurrentPloughWidth {
+            get {
+                return ResourceManager.GetString("gsCurrentPloughWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Curve Line File Corrupt.
         /// </summary>
         public static string gsCurveLineFileIsCorrupt {
@@ -354,6 +381,15 @@ namespace AgOpenGPS {
         public static string gsCurveNotOn {
             get {
                 return ResourceManager.GetString("gsCurveNotOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deadzone in mm.
+        /// </summary>
+        public static string gsDeadzoneinmm {
+            get {
+                return ResourceManager.GetString("gsDeadzoneinmm", resourceCulture);
             }
         }
         
@@ -399,6 +435,15 @@ namespace AgOpenGPS {
         public static string gsDeleteForSure {
             get {
                 return ResourceManager.GetString("gsDeleteForSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desired Plough Width.
+        /// </summary>
+        public static string gsDesiredPloughWidth {
+            get {
+                return ResourceManager.GetString("gsDesiredPloughWidth", resourceCulture);
             }
         }
         
@@ -682,6 +727,15 @@ namespace AgOpenGPS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hold.
+        /// </summary>
+        public static string gsHoldPlough {
+            get {
+                return ResourceManager.GetString("gsHoldPlough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If Wrong Direction Tap Vehicle.
         /// </summary>
         public static string gsIfWrongDirectionTapVehicle {
@@ -754,11 +808,29 @@ namespace AgOpenGPS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Width.
+        /// </summary>
+        public static string gsMax {
+            get {
+                return ResourceManager.GetString("gsMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Meters.
         /// </summary>
         public static string gsMeters {
             get {
                 return ResourceManager.GetString("gsMeters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min Width.
+        /// </summary>
+        public static string gsMin {
+            get {
+                return ResourceManager.GetString("gsMin", resourceCulture);
             }
         }
         
@@ -876,6 +948,15 @@ namespace AgOpenGPS {
         public static string gsNoGuidanceLines {
             get {
                 return ResourceManager.GetString("gsNoGuidanceLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No AB-Line.
+        /// </summary>
+        public static string gsNoline {
+            get {
+                return ResourceManager.GetString("gsNoline", resourceCulture);
             }
         }
         
@@ -1015,6 +1096,15 @@ namespace AgOpenGPS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Plough Control.
+        /// </summary>
+        public static string gsPloughControl {
+            get {
+                return ResourceManager.GetString("gsPloughControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pressure (bar).
         /// </summary>
         public static string gsPressureSensorValueLabel {
@@ -1141,6 +1231,15 @@ namespace AgOpenGPS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Section control Off.
+        /// </summary>
+        public static string gsSectionoff {
+            get {
+                return ResourceManager.GetString("gsSectionoff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sent To Machine Module.
         /// </summary>
         public static string gsSentToMachineModule {
@@ -1182,6 +1281,15 @@ namespace AgOpenGPS {
         public static string gsSlowDownBelow {
             get {
                 return ResourceManager.GetString("gsSlowDownBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Narrower.
+        /// </summary>
+        public static string gsSmaller {
+            get {
+                return ResourceManager.GetString("gsSmaller", resourceCulture);
             }
         }
         
@@ -1344,6 +1452,15 @@ namespace AgOpenGPS {
         public static string gsWest {
             get {
                 return ResourceManager.GetString("gsWest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wider.
+        /// </summary>
+        public static string gsWider {
+            get {
+                return ResourceManager.GetString("gsWider", resourceCulture);
             }
         }
         

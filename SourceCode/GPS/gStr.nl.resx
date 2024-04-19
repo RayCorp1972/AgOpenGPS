@@ -526,9 +526,45 @@
     <value>gebruik geselecteerde</value>
   </data>
   <data name="gsWindowsStillOpen" xml:space="preserve">
-    <value>Ramen nog open</value>
+    <value>Venster nog open</value>
   </data>
   <data name="gsXTEChart" xml:space="preserve">
     <value>XTE Grafiek</value>
+  </data>
+  <data name="gsCurrentPloughWidth" xml:space="preserve">
+    <value>Huidige Ploeg Breedte</value>
+  </data>
+  <data name="gsDeadzoneinmm" xml:space="preserve">
+    <value>Deadzone in mm</value>
+  </data>
+  <data name="gsDesiredPloughWidth" xml:space="preserve">
+    <value>Gewenste Ploeg Breedte</value>
+  </data>
+  <data name="gsPloughControl" xml:space="preserve">
+    <value>Ploeg Besturing</value>
+  </data>
+  <data name="gsAutoConfigOff" xml:space="preserve">
+    <value>Auto Lift uit</value>
+  </data>
+  <data name="gsAutoSwitchOff" xml:space="preserve">
+    <value>Auto Ploeg Schakelaar Uit</value>
+  </data>
+  <data name="gsHoldPlough" xml:space="preserve">
+    <value>Vast</value>
+  </data>
+  <data name="gsMax" xml:space="preserve">
+    <value>Max Ploegbreedte</value>
+  </data>
+  <data name="gsMin" xml:space="preserve">
+    <value>Min Ploegbreedte</value>
+  </data>
+  <data name="gsNoline" xml:space="preserve">
+    <value>AutoPilot niet ingeschakeld</value>
+  </data>
+  <data name="gsSmaller" xml:space="preserve">
+    <value>Smaller</value>
+  </data>
+  <data name="gsWider" xml:space="preserve">
+    <value>Breder</value>
   </data>
 </root>

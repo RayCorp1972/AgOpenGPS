@@ -650,6 +650,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gStr.uk.resx</DependentUpon>
     </Compile>
+    <Compile Include="gStr.zh-CHS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gStr.zh-CHS.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\UDPComm.Designer.cs">
@@ -894,6 +899,7 @@
     <EmbeddedResource Include="gStr.nl.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.nl.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="gStr.pl.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -912,7 +918,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.uk.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="gStr.zh-CHS.resx" />
+    <EmbeddedResource Include="gStr.zh-CHS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>gStr.zh-CHS.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

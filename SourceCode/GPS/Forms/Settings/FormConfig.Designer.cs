@@ -7990,10 +7990,10 @@
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(599, 41);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(232, 531);
+            this.groupBox5.Size = new System.Drawing.Size(240, 531);
             this.groupBox5.TabIndex = 523;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Ploeg besturing";
+            this.groupBox5.Text = "Plough Control";
             // 
             // nudDeadzone
             // 
@@ -8021,7 +8021,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(64, 482);
+            this.button2.Location = new System.Drawing.Point(65, 482);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 36);
@@ -8035,7 +8035,7 @@
             this.label179.AutoSize = true;
             this.label179.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label179.ForeColor = System.Drawing.Color.Black;
-            this.label179.Location = new System.Drawing.Point(50, 400);
+            this.label179.Location = new System.Drawing.Point(49, 396);
             this.label179.Name = "label179";
             this.label179.Size = new System.Drawing.Size(145, 19);
             this.label179.TabIndex = 521;
@@ -8046,15 +8046,15 @@
             this.label180.AutoSize = true;
             this.label180.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label180.ForeColor = System.Drawing.Color.Black;
-            this.label180.Location = new System.Drawing.Point(78, 102);
+            this.label180.Location = new System.Drawing.Point(84, 102);
             this.label180.Name = "label180";
-            this.label180.Size = new System.Drawing.Size(84, 19);
+            this.label180.Size = new System.Drawing.Size(74, 19);
             this.label180.TabIndex = 519;
-            this.label180.Text = "Aan / Uit";
+            this.label180.Text = "On / Off";
             // 
             // btn_calMax
             // 
-            this.btn_calMax.Location = new System.Drawing.Point(130, 346);
+            this.btn_calMax.Location = new System.Drawing.Point(138, 344);
             this.btn_calMax.Margin = new System.Windows.Forms.Padding(2);
             this.btn_calMax.Name = "btn_calMax";
             this.btn_calMax.Size = new System.Drawing.Size(97, 36);
@@ -8069,7 +8069,7 @@
             this.nudUser4.BackColor = System.Drawing.Color.AliceBlue;
             this.nudUser4.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudUser4.InterceptArrowKeys = false;
-            this.nudUser4.Location = new System.Drawing.Point(61, 279);
+            this.nudUser4.Location = new System.Drawing.Point(64, 279);
             this.nudUser4.Maximum = new decimal(new int[] {
             255,
             0,
@@ -8089,7 +8089,7 @@
             // 
             // btn_calMin
             // 
-            this.btn_calMin.Location = new System.Drawing.Point(9, 346);
+            this.btn_calMin.Location = new System.Drawing.Point(5, 344);
             this.btn_calMin.Margin = new System.Windows.Forms.Padding(2);
             this.btn_calMin.Name = "btn_calMin";
             this.btn_calMin.Size = new System.Drawing.Size(98, 36);
@@ -8103,22 +8103,22 @@
             this.label181.AutoSize = true;
             this.label181.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label181.ForeColor = System.Drawing.Color.Black;
-            this.label181.Location = new System.Drawing.Point(15, 141);
+            this.label181.Location = new System.Drawing.Point(29, 139);
             this.label181.Name = "label181";
-            this.label181.Size = new System.Drawing.Size(211, 19);
+            this.label181.Size = new System.Drawing.Size(185, 19);
             this.label181.TabIndex = 489;
-            this.label181.Text = "Gewenste Ploeg Breedte";
+            this.label181.Text = "Desired Plough Width";
             // 
             // label182
             // 
             this.label182.AutoSize = true;
             this.label182.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label182.ForeColor = System.Drawing.Color.Black;
-            this.label182.Location = new System.Drawing.Point(17, 254);
+            this.label182.Location = new System.Drawing.Point(9, 253);
             this.label182.Name = "label182";
-            this.label182.Size = new System.Drawing.Size(211, 19);
+            this.label182.Size = new System.Drawing.Size(225, 19);
             this.label182.TabIndex = 516;
-            this.label182.Text = "Geef gemeten verschil in";
+            this.label182.Text = "Enter measured difference";
             // 
             // nudUser1
             // 
@@ -8126,7 +8126,7 @@
             this.nudUser1.BackColor = System.Drawing.Color.AliceBlue;
             this.nudUser1.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudUser1.InterceptArrowKeys = false;
-            this.nudUser1.Location = new System.Drawing.Point(61, 177);
+            this.nudUser1.Location = new System.Drawing.Point(64, 177);
             this.nudUser1.Maximum = new decimal(new int[] {
             255,
             0,
@@ -8370,7 +8370,7 @@
             this.label72.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label72.AutoSize = true;
             this.label72.ForeColor = System.Drawing.Color.Black;
-            this.label72.Location = new System.Drawing.Point(243, 500);
+            this.label72.Location = new System.Drawing.Point(82, 562);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(82, 16);
             this.label72.TabIndex = 476;
@@ -8439,6 +8439,7 @@
             0,
             0,
             0});
+            this.nudUser2.Visible = false;
             this.nudUser2.Click += new System.EventHandler(this.nudUser2_Click);
             // 
             // cboxMachInvertRelays

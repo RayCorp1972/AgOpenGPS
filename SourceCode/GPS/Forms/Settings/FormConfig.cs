@@ -111,6 +111,7 @@ namespace AgOpenGPS
 
         private void FormConfig_Load(object sender, EventArgs e)
         {
+            groupBox5.Text = gStr.gsPloughControl;
 
             //since we reset, save current state
             mf.SaveFormGPSWindowSettings();

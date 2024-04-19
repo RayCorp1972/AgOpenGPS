@@ -564,4 +564,43 @@
   <data name="v_SteerSettingsForm" xml:space="preserve">
     <value>https://www.youtube.com/watch?v=3SdvYgx8HHc</value>
   </data>
+  <data name="gsCurrentPloughWidth" xml:space="preserve">
+    <value>Current Plough Width</value>
+  </data>
+  <data name="gsDeadzoneinmm" xml:space="preserve">
+    <value>Deadzone in mm</value>
+  </data>
+  <data name="gsDesiredPloughWidth" xml:space="preserve">
+    <value>Desired Plough Width</value>
+  </data>
+  <data name="gsPloughControl" xml:space="preserve">
+    <value>Plough Control</value>
+  </data>
+  <data name="gsAutoConfigOff" xml:space="preserve">
+    <value>Auto lift Off</value>
+  </data>
+  <data name="gsAutoSwitchOff" xml:space="preserve">
+    <value>Auto Plough Switch Off</value>
+  </data>
+  <data name="gsHoldPlough" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="gsMax" xml:space="preserve">
+    <value>Max Width</value>
+  </data>
+  <data name="gsMin" xml:space="preserve">
+    <value>Min Width</value>
+  </data>
+  <data name="gsNoline" xml:space="preserve">
+    <value>No AB-Line</value>
+  </data>
+  <data name="gsSmaller" xml:space="preserve">
+    <value>Narrower</value>
+  </data>
+  <data name="gsWider" xml:space="preserve">
+    <value>Wider</value>
+  </data>
+  <data name="gsSectionoff" xml:space="preserve">
+    <value>Section control Off</value>
+  </data>
 </root>
