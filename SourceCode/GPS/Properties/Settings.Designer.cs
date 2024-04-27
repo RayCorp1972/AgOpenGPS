@@ -3023,5 +3023,17 @@ namespace AgOpenGPS.Properties {
                 this["setArdMac_user10"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        public byte setArdMac_user11 {
+            get {
+                return ((byte)(this["setArdMac_user11"]));
+            }
+            set {
+                this["setArdMac_user11"] = value;
+            }
+        }
     }
 }

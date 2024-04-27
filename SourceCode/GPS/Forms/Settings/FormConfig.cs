@@ -117,9 +117,9 @@ namespace AgOpenGPS
 
         private void FormConfig_Load(object sender, EventArgs e)
         {
-            groupBox5.Text = gStr.gsPloughControl;
+            //groupBox5.Text = gStr.gsPloughControl;
 
-
+           
 
             //since we reset, save current state
             mf.SaveFormGPSWindowSettings();
@@ -314,6 +314,10 @@ namespace AgOpenGPS
             SaveDisplaySettings();
         }
 
+    
+
+        
+
         private void rbtnDisplayImperial_Click(object sender, EventArgs e)
         {
             mf.TimedMessageBox(2000, "Units Set", "Imperial");
@@ -387,6 +391,13 @@ namespace AgOpenGPS
 
         }
 
-     
+        private void btnSetDeadzone_Click(object sender, EventArgs e)
+        {
+            SaveSettingsMachine();
+
+            Properties.Settings.Default.Save();
+        }
+
+       
     }
 }

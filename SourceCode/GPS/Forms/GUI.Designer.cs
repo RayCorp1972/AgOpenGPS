@@ -1322,7 +1322,7 @@ namespace AgOpenGPS
                     {
                         if (point.Y > 60 && point.Y < 365)
                         {
-                            ButtonClickAction();
+                            PwmPloughManualSetMin();
                         }
                     }
 
@@ -1332,15 +1332,8 @@ namespace AgOpenGPS
                     {
                         if (point.Y > 60 && point.Y < 365)
                         {
-                           // MessageBox.Show("Werkt pwm+");
-                            vehicle.isInFreeDriveMode = true;
                            
-                            
-                            vehicle.driveFreeSteerAngle = 0;
-                            vehicle.driveFreeSteerAngle--;
-                            if (vehicle.driveFreeSteerAngle < 40) vehicle.driveFreeSteerAngle = 40;
-
-
+                            PwmPloughManualSetPlus();
                         }
                     }
 

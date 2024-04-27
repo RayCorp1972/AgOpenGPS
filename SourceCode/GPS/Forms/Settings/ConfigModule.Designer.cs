@@ -34,6 +34,7 @@ namespace AgOpenGPS
             nudUser3.Value = 0;
             nudUser4.Value = 0;
             nudDeadzone.Value = 10;
+            nudUser11.Value = Properties.Settings.Default.setArdMac_user11;
 
 
             mf.p_238.pgn[mf.p_238.user2] = 0;
@@ -44,7 +45,7 @@ namespace AgOpenGPS
 
         private void aPlough_Leave(object sender, EventArgs e)
         {
-
+            SaveSettingsMachine();
 
         }
 
@@ -129,6 +130,14 @@ namespace AgOpenGPS
             }
         }
 
+        private void nudUser11_Click(object sender, EventArgs e)
+        {
+            if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
+            {
+                pboxSendMachine.Visible = true;
+            }
+        }
+
         private void nudUser2_Click(object sender, EventArgs e)
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
@@ -205,6 +214,9 @@ namespace AgOpenGPS
             Properties.Settings.Default.setArdMac_user3 = 0;
             Properties.Settings.Default.setArdMac_user4 = 0;
             Properties.Settings.Default.setArdMac_user5 = (byte)nudDeadzone.Value;
+            Properties.Settings.Default.setArdMac_user11 = (byte)nudUser11.Value;
+            //Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1.Value;
+            //Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1.Value;
 
             Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead = (double)nudHydLiftLookAhead.Value;
             mf.vehicle.hydLiftLookAheadTime = Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead;

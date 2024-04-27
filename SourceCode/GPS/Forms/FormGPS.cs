@@ -796,12 +796,21 @@ namespace AgOpenGPS
             }
         }
 
-        public void ButtonClickAction()
+        public void PwmPloughManualSetPlus()
         {                      
             
             
             Properties.Settings.Default.setArdMac_user1 = 220;
            
+        }
+
+
+        public void PwmPloughManualSetMin()
+        {
+
+            ploughWidth--;
+            Properties.Settings.Default.setArdMac_user1 = (byte)ploughWidth;
+
         }
         public void KeyboardToText(TextBox sender, Form owner)
         {
