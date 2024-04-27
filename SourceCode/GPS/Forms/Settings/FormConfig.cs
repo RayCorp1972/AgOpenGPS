@@ -1,5 +1,7 @@
 ﻿//Please, if you use this, share the improvements
 
+// Add plough control /toDO :  remove option to only use autoguidance
+
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,8 +10,11 @@ namespace AgOpenGPS
 {
     public partial class FormConfig : Form
     {
+
+        
         //class variables
         private readonly FormGPS mf = null;
+        
 
         private bool isClosing = false;
 
@@ -24,6 +29,7 @@ namespace AgOpenGPS
         {
             //get copy of the calling main form
             mf = callingForm as FormGPS;
+            
             InitializeComponent();
 
             tab1.Appearance = TabAppearance.FlatButtons;
@@ -113,15 +119,17 @@ namespace AgOpenGPS
         {
             groupBox5.Text = gStr.gsPloughControl;
 
+
+
             //since we reset, save current state
             mf.SaveFormGPSWindowSettings();
-            
+
             //Checkbox image Plough control
             chbPloeg.BackgroundImage = Properties.Resources.PloughOff;
             chbPloeg.Checked = mf.isPlougOn;
 
             //metric or imp on spinners min/maxes
-            if (!mf.isMetric)  FixMinMaxSpinners();            
+            if (!mf.isMetric) FixMinMaxSpinners();
 
             //the pick a saved vehicle box
             UpdateVehicleListView();
@@ -329,19 +337,19 @@ namespace AgOpenGPS
         // Ploug Control Button on
         private void chbPloeg_CheckedChanged(object sender, EventArgs e)
         {
-            
-                if (chbPloeg.Checked)
-                {
-                    chbPloeg.BackgroundImage = Properties.Resources.PloughOn;
+
+            if (chbPloeg.Checked)
+            {
+                chbPloeg.BackgroundImage = Properties.Resources.PloughOn;
 
 
-                }
-                else
-                {
-                    chbPloeg.BackgroundImage = Properties.Resources.PloughOff;
+            }
+            else
+            {
+                chbPloeg.BackgroundImage = Properties.Resources.PloughOff;
 
-                }
-          
+            }
+
         }
 
         private void btn_calMin_Click(object sender, EventArgs e)
@@ -356,12 +364,29 @@ namespace AgOpenGPS
             btnSendMachinePGN.PerformClick();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             SaveSettingsMachine();
 
             Properties.Settings.Default.Save();
 
         }
+
+        private void btnSubPlough_Click(object sender, EventArgs e)
+        {
+            tab1.SelectedTab = aPlough;
+        }
+
+        private void btnSetWidth_Click(object sender, EventArgs e)
+        {
+            SaveSettingsMachine();
+
+            Properties.Settings.Default.Save();
+
+            mf.TimedMessageBox(1000, gStr.gsMachinePort, gStr.gsSentToMachineModule);
+
+        }
+
+     
     }
 }

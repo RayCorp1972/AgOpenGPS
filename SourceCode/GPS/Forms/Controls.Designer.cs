@@ -441,6 +441,8 @@ namespace AgOpenGPS
                 f.Close();
             }
 
+
+
             f = null;
             f = Application.OpenForms["FormFieldData"];
 
@@ -459,6 +461,9 @@ namespace AgOpenGPS
                 f.Focus();
                 f.Close();
             }
+
+
+           
 
             if (this.OwnedForms.Any())
             {

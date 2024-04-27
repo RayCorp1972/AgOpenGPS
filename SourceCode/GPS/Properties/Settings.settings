@@ -737,5 +737,20 @@
     <Setting Name="setArdMac_user5" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
+    <Setting Name="setArdMac_user6" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="setArdMac_user7" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="setArdMac_user8" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="setArdMac_user9" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="setArdMac_user10" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

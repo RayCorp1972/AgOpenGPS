@@ -284,7 +284,7 @@ namespace AgOpenGPS
                         if (bnd.isHeadlandOn)
                         {
                             GL.Color3(0.960f, 0.96232f, 0.30f);
-                                bnd.bndList[0].hdLine.DrawPolygon();
+                            bnd.bndList[0].hdLine.DrawPolygon();
                         }
                     }
 
@@ -386,7 +386,7 @@ namespace AgOpenGPS
 
                     DrawSteerCircle();
 
-                    if (tool.isDisplayTramControl && tram.displayMode != 0) { DrawTramMarkers(); }                       
+                    if (tool.isDisplayTramControl && tram.displayMode != 0) { DrawTramMarkers(); }
 
                     if (vehicle.isHydLiftOn) DrawLiftIndicator();
 
@@ -408,7 +408,7 @@ namespace AgOpenGPS
 
                     if (pn.age > pn.ageAlarm) DrawAge();
 
-                    if (trk.idx >-1) DrawGuidanceLineText();
+                    if (trk.idx > -1) DrawGuidanceLineText();
 
                     //just in case
                     GL.Disable(EnableCap.LineStipple);
@@ -431,9 +431,9 @@ namespace AgOpenGPS
                     if (leftMouseDownOnOpenGL) MakeFlagMark();
 
                     //5 hz sections
-                    if (bbCounter++ > 0) 
+                    if (bbCounter++ > 0)
                         bbCounter = 0;
-                   
+
                     //draw the section control window off screen buffer
                     if (isJobStarted && (bbCounter == 0))
                     {
@@ -1313,7 +1313,7 @@ namespace AgOpenGPS
                 //lblBlu.Text = rateBlu[0].ToString();
 
                 //Red, Green, Blu
-                p_228.pgn[p_228.rate0] = per; 
+                p_228.pgn[p_228.rate0] = per;
                 p_228.pgn[p_228.rate1] = (byte)rateGrn[0];
                 p_228.pgn[p_228.rate2] = (byte)rateBlu[0];
 
@@ -1362,7 +1362,7 @@ namespace AgOpenGPS
         {
             if (Math.Abs(pivotAxlePos.easting) > 20000 || Math.Abs(pivotAxlePos.northing) > 20000)
             {
-                YesMessageBox("Serious Field Origin Error" +  "\r\n\r\n" +
+                YesMessageBox("Serious Field Origin Error" + "\r\n\r\n" +
                     "Field Origin is More Then 20 km from your current GPS Position" +
                     " Delete this field and create a new one as Accuracy will be poor" + "\r\n\r\n" +
                     "Or you may have a field open and drove far away");
@@ -1864,7 +1864,7 @@ namespace AgOpenGPS
         private void DrawTramMarkers()
         {
             //int sizer = 60;
-            int center = -50 ;
+            int center = -50;
             int bottomSide = 100;
 
             GL.Enable(EnableCap.Texture2D);
@@ -2229,8 +2229,8 @@ namespace AgOpenGPS
             {
                 GL.TexCoord2(0, 0); GL.Vertex2(center, 50); // 
                 GL.TexCoord2(1, 0); GL.Vertex2(center + 32, 50); // 
-                GL.TexCoord2(1, 1); GL.Vertex2(center+ 32, 82); // 
-                GL.TexCoord2(0, 1); GL.Vertex2(center , 82); //
+                GL.TexCoord2(1, 1); GL.Vertex2(center + 32, 82); // 
+                GL.TexCoord2(0, 1); GL.Vertex2(center, 82); //
             }
             GL.End();
 
@@ -2285,14 +2285,14 @@ namespace AgOpenGPS
             font.DrawText(oglMain.Width / 2 - lenth, 10, strHeading, 1);
 
             //GPS Step
-            if (distanceCurrentStepFixDisplay < 0.03*100)
+            if (distanceCurrentStepFixDisplay < 0.03 * 100)
                 GL.Color3(0.98f, 0.82f, 0.653f);
             font.DrawText(center, 10, distanceCurrentStepFixDisplay.ToString("N1") + "cm", 1);
 
             if (isMaxAngularVelocity)
             {
                 GL.Color3(0.98f, 0.4f, 0.4f);
-                font.DrawText(center-10, oglMain.Height-260, "*", 2);
+                font.DrawText(center - 10, oglMain.Height - 260, "*", 2);
             }
 
             //if (ahrs.imuHeading != 99999)
@@ -2350,7 +2350,7 @@ namespace AgOpenGPS
         {
             //Heading text
             int center = oglMain.Width / 2 - 55;
-            font.DrawText(center-8, 40, "^", 0.8);
+            font.DrawText(center - 8, 40, "^", 0.8);
 
 
             GL.PushMatrix();
@@ -2380,7 +2380,7 @@ namespace AgOpenGPS
             if (isReverseWithIMU)
             {
                 GL.Color3(0.952f, 0.9520f, 0.0f);
-                            
+
                 GL.PushMatrix();
                 GL.Enable(EnableCap.Texture2D);
 
@@ -2445,7 +2445,7 @@ namespace AgOpenGPS
 
             GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.Lift]);        // Select Our Texture
 
-            GL.Translate(oglMain.Width / 2 - 35, oglMain.Height/2, 0);
+            GL.Translate(oglMain.Width / 2 - 35, oglMain.Height / 2, 0);
 
             if (p_239.pgn[p_239.hydLift] == 2)
             {
@@ -2499,7 +2499,7 @@ namespace AgOpenGPS
             }
             else
             {
-                double aveSpd = Math.Abs(avgSpeed*0.62137);
+                double aveSpd = Math.Abs(avgSpeed * 0.62137);
                 if (aveSpd > 20) aveSpd = 20;
                 angle = (aveSpd - 10) * 15;
             }
@@ -2566,16 +2566,17 @@ namespace AgOpenGPS
             String Abline = (gStr.gsNoline);
             String SectionOff = (gStr.gsSectionoff);
 
-            
+
+
             int center = oglMain.Width / -2 + 10;
-            font.DrawText(center - 8, 40, "^", 0.8);
+            //font.DrawText(center - 8, 40, "^", 0.8);
             GL.Color3(0.9652f, 0.9752f, 0.1f); //Yellow
-                                               
+
             font.DrawText(center + 10, 150, PloughControl, .9); // 
             font.DrawText(center + 10, 180, DesiredPloughWidth + ": " + (decimal)Properties.Settings.Default.setArdMac_user1 + "cm", 0.7);
             font.DrawText(center + 10, 210, CurrentPloughWidth + ": " + ploughWidth.ToString() + "cm", 0.7);
             font.DrawText(center + 10, 240, Deadzone + ": " + (decimal)Properties.Settings.Default.setArdMac_user5 + "mm", 0.7);
-            
+            font.DrawText(center + 25, 310, "Wider    Narrow", 0.7);
             if (ploughMode == 0) font.DrawText(center + 10, 270, SectionOff, 0.7);
             else if (ploughMode == 1) font.DrawText(center + 10, 270, AutoConfig, 1);
             else if (ploughMode == 2) font.DrawText(center + 10, 270, AutoSwitch, 1);
@@ -2585,36 +2586,56 @@ namespace AgOpenGPS
             else if (ploughMode == 6) font.DrawText(center + 10, 270, Smaller, 1);
             else if (ploughMode == 7) font.DrawText(center + 10, 270, Min, 1);
             else if (ploughMode == 8) font.DrawText(center + 10, 270, Abline, 1);
-            //DrawPlough();
+
+
+            PlougPwmMinus();
+            PlougPwmPlus();
+
+
 
         }
-        private void DrawPlough()
+
+        private void PlougPwmMinus()
         {
-            int center1 = oglMain.Width / -2 + 10;
-            font.DrawText(center1 - 8, 250, "^", 0.8);
+
+            GL.Enable(EnableCap.Texture2D);      // Select Our Texture
             GL.Color3(0.90f, 0.90f, 0.93f);
+            GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomOut48]);        // Select Our Texture
+            GL.Begin(PrimitiveType.Quads);
 
-            
-
-            GL.Begin(PrimitiveType.Quads); // Build Quad From A Triangle Strip
+            int hite = 365;
+            int center2 = oglMain.Width / -2 + 150;
             {
-                GL.TexCoord2(0, 0); GL.Vertex2(center1, 50); // 
-                GL.TexCoord2(1, 0); GL.Vertex2(center1 + 32, 50); // 
-                GL.TexCoord2(1, 1); GL.Vertex2(center1 + 32, 82); // 
-                GL.TexCoord2(0, 1); GL.Vertex2(center1, 82); //
-            }
-            GL.End();
-
-            GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomOut48]);
-            GL.Begin(PrimitiveType.Quads); // Build Quad From A Triangle Strip
-            {
-                GL.TexCoord2(0, 0); GL.Vertex2(center1, 150); // 
-                GL.TexCoord2(1, 0); GL.Vertex2(center1 + 32, 150); // 
-                GL.TexCoord2(1, 1); GL.Vertex2(center1 + 32, 182); // 
-                GL.TexCoord2(0, 1); GL.Vertex2(center1, 182); //
+                GL.TexCoord2(0, 0); GL.Vertex2(center2, hite - 32); // 
+                GL.TexCoord2(1, 0); GL.Vertex2(center2 + 32, hite - 32); // 
+                GL.TexCoord2(1, 1); GL.Vertex2(center2 + 32, hite); // 
+                GL.TexCoord2(0, 1); GL.Vertex2(center2, hite); //
             }
             GL.End();
         }
+
+
+        private void PlougPwmPlus()
+        {
+
+
+            GL.Enable(EnableCap.Texture2D);
+            GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomIn48]);        // Select Our Texture
+            GL.Color3(0.90f, 0.90f, 0.93f);
+            GL.Begin(PrimitiveType.Quads);  
+                    
+            int hite = 365;
+            int center2 = oglMain.Width / -2 + 48;
+            {
+                GL.TexCoord2(0, 0); GL.Vertex2(center2, hite - 32); // 
+                GL.TexCoord2(1, 0); GL.Vertex2(center2 + 32, hite - 32); // 
+                GL.TexCoord2(1, 1); GL.Vertex2(center2 + 32, hite); // 
+                GL.TexCoord2(0, 1); GL.Vertex2(center2, hite); //
+            }
+            GL.End();
+        }
+
+
 
         private void CalcFrustum()
         {
@@ -2788,5 +2809,8 @@ namespace AgOpenGPS
             //lblZooom.Text = ((int)(maxFieldDistance)).ToString();
 
         }
+
+
+
     }
 }

@@ -17,8 +17,12 @@ namespace AgOpenGPS
     public enum HBrand { AgOpenGPS, Case, Claas, JDeere, NewHolland }
     public enum WDBrand { AgOpenGPS, Case, Challenger, JDeere, NewHolland, Holder }
 
+  
+
     public partial class FormGPS
     {
+
+       
         //ABLines directory
         public string ablinesDirectory;
         public string fieldData, guidanceLineText;
@@ -50,7 +54,7 @@ namespace AgOpenGPS
 
         //Is it in 2D or 3D, metric or imperial, display lightbar, display grid etc
         public bool isMetric = true, isLightbarOn = true, isGridOn, isFullScreen;
-        public bool isUTurnAlwaysOn, isCompassOn, isSpeedoOn, isPlougOn, isSideGuideLines = true;
+        public bool isUTurnAlwaysOn, isCompassOn, isSpeedoOn, isPlougOn, isPwmOn, isBlackWhiteOn, isRotationSensorOn, isSideGuideLines = true;
         public bool isPureDisplayOn = true, isSkyOn = true, isRollMeterOn = false, isTextureOn = true;
         public bool isDay = true, isDayTime = true, isBrightnessOn = true;
         public bool isLogElevation = false;
@@ -85,6 +89,8 @@ namespace AgOpenGPS
         private int oneHalfSecondCounter = 0;
 
         public List<int> buttonOrder = new List<int>();
+
+        
 
         //Timer triggers at 125 msec
         private void tmrWatchdog_tick(object sender, EventArgs e)
@@ -188,7 +194,7 @@ namespace AgOpenGPS
                                         + "  Actual: " + fd.ActualAreaWorkedHectares
                                         + "  " + fd.WorkedAreaRemainPercentage
                                         + "  " + fd.WorkRateHectares;
-
+                                
                                 }
                                 else
                                 {
@@ -1311,6 +1317,34 @@ namespace AgOpenGPS
                         }
                     }
 
+                    //Pwm plough Minus
+                    if (point.X > 150 && point.X < 170)
+                    {
+                        if (point.Y > 60 && point.Y < 365)
+                        {
+                            ButtonClickAction();
+                        }
+                    }
+
+                    //Pwm plough Plus
+
+                    if (point.X > 48 && point.X < 90)
+                    {
+                        if (point.Y > 60 && point.Y < 365)
+                        {
+                           // MessageBox.Show("Werkt pwm+");
+                            vehicle.isInFreeDriveMode = true;
+                           
+                            
+                            vehicle.driveFreeSteerAngle = 0;
+                            vehicle.driveFreeSteerAngle--;
+                            if (vehicle.driveFreeSteerAngle < 40) vehicle.driveFreeSteerAngle = 40;
+
+
+                        }
+                    }
+
+
                     //tram override
                     if (tool.isDisplayTramControl && (point.Y > 68 && point.Y < 120))
                     {
@@ -1618,6 +1652,8 @@ namespace AgOpenGPS
 
             return bitmap4WDRear;
         }
+
+        
 
     }//end class
 }//end namespace

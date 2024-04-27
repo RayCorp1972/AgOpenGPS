@@ -5,8 +5,11 @@ using System.Windows.Forms;
 
 namespace AgOpenGPS
 {
+
     public partial class FormConfig
     {
+
+
 
         #region Module Steer
         private void tabASteer_Enter(object sender, EventArgs e)
@@ -24,6 +27,26 @@ namespace AgOpenGPS
         }
 
         #region Module MAchine
+
+        private void aPlough_Enter(object sender, EventArgs e)
+        {
+            nudUser1.Value = Properties.Settings.Default.setArdMac_user1;
+            nudUser3.Value = 0;
+            nudUser4.Value = 0;
+            nudDeadzone.Value = 10;
+
+
+            mf.p_238.pgn[mf.p_238.user2] = 0;
+
+            btnSendMachinePGN.Focus();
+
+        }
+
+        private void aPlough_Leave(object sender, EventArgs e)
+        {
+
+
+        }
 
         private void tabAMachine_Enter(object sender, EventArgs e)
         {
@@ -57,10 +80,11 @@ namespace AgOpenGPS
             nudLowerTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydLowerTime;
 
 
-            nudUser1.Value = (decimal)Properties.Settings.Default.setArdMac_user1; 
-            nudUser3.Value = 0;
-            nudUser4.Value = 0;
-            nudDeadzone.Value = 10;
+            //nudUser1.Value = Properties.Settings.Default.setArdMac_user1; 
+            //nudUser3.Value = 0;
+            //nudUser4.Value = 0;
+            //nudDeadzone.Value = 10;
+
 
             mf.p_238.pgn[mf.p_238.user2] = 0;
 
@@ -189,7 +213,7 @@ namespace AgOpenGPS
             mf.p_238.pgn[mf.p_238.raiseTime] = (byte)nudRaiseTime.Value;
             mf.p_238.pgn[mf.p_238.lowerTime] = (byte)nudLowerTime.Value;
 
-            mf.p_238.pgn[mf.p_238.user1] = (byte)(nudUser1.Value - 200);         //Target width cm 
+            mf.p_238.pgn[mf.p_238.user1] = (byte)(nudUser1.Value - 100);         //Target width cm 
                                                                                  //mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2.Value;              //Calabration instruction
             int calValue = (int)nudUser4.Value;
             mf.p_238.pgn[mf.p_238.user3] = (byte)calValue;                      //Calabration value L

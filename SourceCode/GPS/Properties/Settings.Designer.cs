@@ -2963,5 +2963,65 @@ namespace AgOpenGPS.Properties {
                 this["setArdMac_user5"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public byte setArdMac_user6 {
+            get {
+                return ((byte)(this["setArdMac_user6"]));
+            }
+            set {
+                this["setArdMac_user6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public byte setArdMac_user7 {
+            get {
+                return ((byte)(this["setArdMac_user7"]));
+            }
+            set {
+                this["setArdMac_user7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public byte setArdMac_user8 {
+            get {
+                return ((byte)(this["setArdMac_user8"]));
+            }
+            set {
+                this["setArdMac_user8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("9")]
+        public byte setArdMac_user9 {
+            get {
+                return ((byte)(this["setArdMac_user9"]));
+            }
+            set {
+                this["setArdMac_user9"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public byte setArdMac_user10 {
+            get {
+                return ((byte)(this["setArdMac_user10"]));
+            }
+            set {
+                this["setArdMac_user10"] = value;
+            }
+        }
     }
 }

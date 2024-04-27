@@ -82,9 +82,9 @@
             this.btnPanDn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPanDn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPanDn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPanDn.Location = new System.Drawing.Point(65, 126);
+            this.btnPanDn.Location = new System.Drawing.Point(92, 126);
             this.btnPanDn.Name = "btnPanDn";
-            this.btnPanDn.Size = new System.Drawing.Size(48, 48);
+            this.btnPanDn.Size = new System.Drawing.Size(50, 48);
             this.btnPanDn.TabIndex = 470;
             this.btnPanDn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPanDn.UseVisualStyleBackColor = false;
@@ -116,7 +116,7 @@
             this.btnPanRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPanRight.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPanRight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPanRight.Location = new System.Drawing.Point(128, 66);
+            this.btnPanRight.Location = new System.Drawing.Point(127, 60);
             this.btnPanRight.Name = "btnPanRight";
             this.btnPanRight.Size = new System.Drawing.Size(48, 48);
             this.btnPanRight.TabIndex = 472;

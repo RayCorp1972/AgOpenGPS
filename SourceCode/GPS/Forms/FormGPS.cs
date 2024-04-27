@@ -1,5 +1,9 @@
 ﻿//Please, if you use this, share the improvements
 
+// line 795
+// Add step for wider and set this in settings : read wider / smaller value steps in mm and every push should 
+// do the given value ++
+
 using AgOpenGPS;
 using AgOpenGPS.Properties;
 using OpenTK;
@@ -19,8 +23,12 @@ using System.Resources;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
+
 {
     //the main form object
+
+
+   
     public partial class FormGPS : Form
     {
         //To bring forward AgIO if running
@@ -237,6 +245,8 @@ namespace AgOpenGPS
         /// <summary>
         /// The new brightness code
         /// </summary>
+        /// 
+     
 
         private void panelRight_Paint(object sender, PaintEventArgs e)
         {
@@ -721,7 +731,7 @@ namespace AgOpenGPS
             Pan, MenuHideShow, 
             ToolWheels, Tire, TramDot,
             RateMap1, RateMap2, RateMap3, 
-            YouTurnU, YouTurnH
+            YouTurnU, YouTurnH, AutoPlough
         }
 
         public void LoadGLTextures()
@@ -743,7 +753,7 @@ namespace AgOpenGPS
                 Resources.Pan, Resources.MenuHideShow,
                 Resources.z_Tool, Resources.z_Tire, Resources.z_TramOnOff, 
                 Resources.z_RateMap1, Resources.z_RateMap2, Resources.z_RateMap3,
-                Resources.YouTurnU, Resources.YouTurnH
+                Resources.YouTurnU, Resources.YouTurnH, Resources.AutoPlough
             };
 
             texture = new uint[oglTextures.Length];
@@ -786,6 +796,13 @@ namespace AgOpenGPS
             }
         }
 
+        public void ButtonClickAction()
+        {                      
+            
+            
+            Properties.Settings.Default.setArdMac_user1 = 220;
+           
+        }
         public void KeyboardToText(TextBox sender, Form owner)
         {
             var colour = sender.BackColor;
@@ -1197,7 +1214,11 @@ namespace AgOpenGPS
             return min + _random.NextDouble() * (max - min);
         }
 
+       
+
         private readonly Random _random = new Random();
+
+
 
     }//class FormGPS
 }//namespace AgOpenGPS

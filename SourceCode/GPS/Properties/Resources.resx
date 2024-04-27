@@ -1357,4 +1357,22 @@
   <data name="PloughOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PloughOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Plough" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plough (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plough__2__removebg_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plough__2_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PWM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PWM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AutoPlough" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Auto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="onoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onoff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rotationsensor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rotationsensor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

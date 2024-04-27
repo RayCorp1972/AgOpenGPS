@@ -266,7 +266,7 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(109, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 16);
+            this.label11.Size = new System.Drawing.Size(31, 16);
             this.label11.TabIndex = 319;
             this.label11.Text = "Act:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -281,7 +281,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(4, 9);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 16);
+            this.label12.Size = new System.Drawing.Size(32, 16);
             this.label12.TabIndex = 320;
             this.label12.Text = "Set:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -296,7 +296,7 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(210, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 16);
+            this.label13.Size = new System.Drawing.Size(30, 16);
             this.label13.TabIndex = 321;
             this.label13.Text = "Err:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -311,7 +311,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label14.Location = new System.Drawing.Point(289, 82);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 16);
+            this.label14.Size = new System.Drawing.Size(46, 16);
             this.label14.TabIndex = 322;
             this.label14.Text = "Or +5";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -499,7 +499,7 @@
             this.label36.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(247, 42);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(50, 16);
+            this.label36.Size = new System.Drawing.Size(51, 16);
             this.label36.TabIndex = 530;
             this.label36.Text = "AV Act:";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -523,7 +523,7 @@
             this.label38.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(246, 18);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(51, 16);
+            this.label38.Size = new System.Drawing.Size(52, 16);
             this.label38.TabIndex = 531;
             this.label38.Text = "AV Set:";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1193,7 +1193,7 @@
             this.label28.ForeColor = System.Drawing.Color.Black;
             this.label28.Location = new System.Drawing.Point(359, 423);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(193, 32);
+            this.label28.Size = new System.Drawing.Size(194, 32);
             this.label28.TabIndex = 513;
             this.label28.Text = "Button - Push On. Push Off\r\nSwitch - Pushed On, Release Off";
             // 
@@ -1237,7 +1237,7 @@
             this.label70.ForeColor = System.Drawing.Color.Black;
             this.label70.Location = new System.Drawing.Point(186, 189);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(97, 16);
+            this.label70.Size = new System.Drawing.Size(98, 16);
             this.label70.TabIndex = 505;
             this.label70.Text = "Invert Motor Dir";
             // 
@@ -1248,7 +1248,7 @@
             this.label29.ForeColor = System.Drawing.Color.Black;
             this.label29.Location = new System.Drawing.Point(186, 323);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(81, 16);
+            this.label29.Size = new System.Drawing.Size(82, 16);
             this.label29.TabIndex = 504;
             this.label29.Text = "Invert Relays";
             // 
@@ -1401,7 +1401,7 @@
             this.label55.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label55.Location = new System.Drawing.Point(15, 48);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(52, 16);
+            this.label55.Size = new System.Drawing.Size(53, 16);
             this.label55.TabIndex = 489;
             this.label55.Text = "Danfoss";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1413,7 +1413,7 @@
             this.label30.ForeColor = System.Drawing.Color.Black;
             this.label30.Location = new System.Drawing.Point(185, 53);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(72, 16);
+            this.label30.Size = new System.Drawing.Size(73, 16);
             this.label30.TabIndex = 515;
             this.label30.Text = "Invert WAS";
             // 
@@ -1544,6 +1544,7 @@
             this.btnSteerAngleDown.Size = new System.Drawing.Size(73, 56);
             this.btnSteerAngleDown.TabIndex = 314;
             this.btnSteerAngleDown.UseVisualStyleBackColor = true;
+            this.btnSteerAngleDown.Click += new System.EventHandler(this.btnSteerAngleDown_Click);
             this.btnSteerAngleDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSteerAngleDown_MouseDown);
             // 
             // hsbarSensor
@@ -1615,7 +1616,7 @@
             this.label31.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label31.Location = new System.Drawing.Point(176, 241);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(48, 16);
+            this.label31.Size = new System.Drawing.Size(49, 16);
             this.label31.TabIndex = 521;
             this.label31.Text = "0 = Off";
             this.label31.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1971,7 +1972,7 @@
             this.label41.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label41.Location = new System.Drawing.Point(454, 118);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(18, 16);
+            this.label41.Size = new System.Drawing.Size(19, 16);
             this.label41.TabIndex = 532;
             this.label41.Text = "In";
             this.label41.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -1985,7 +1986,7 @@
             this.label39.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label39.Location = new System.Drawing.Point(140, 118);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(27, 16);
+            this.label39.Size = new System.Drawing.Size(28, 16);
             this.label39.TabIndex = 531;
             this.label39.Text = "Out";
             this.label39.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

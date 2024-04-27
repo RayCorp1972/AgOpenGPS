@@ -975,8 +975,16 @@
     <None Include="btnImages\Config\ConF_SoundSections.png" />
     <None Include="btnImages\Config\ConD_LogElevation.png" />
     <None Include="btnImages\Config\ConT_TramOverrideDisplay.png" />
+    <None Include="Resources\plough-glyph-icon-design-free-vector.jpg" />
+    <None Include="Resources\Plough %282%29.jpg" />
+    <None Include="Resources\Plough__2_-removebg-preview.png" />
+    <None Include="Resources\PWM.png" />
     <None Include="Resources\PloughOff.png" />
     <None Include="Resources\PloughOn.png" />
+    <None Include="Resources\onoff.png" />
+    <None Include="Resources\Rotationsensor.png" />
+    <Content Include="btnImages\Auto.png" />
+    <None Include="Resources\Auto.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />
