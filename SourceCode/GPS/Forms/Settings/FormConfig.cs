@@ -356,25 +356,22 @@ namespace AgOpenGPS
 
         }
 
-        private void btn_calMin_Click(object sender, EventArgs e)
-        {
-            mf.p_238.pgn[mf.p_238.user2] = 111; //Cal min command
-            btnSendMachinePGN.PerformClick();
-        }
+        //private void btn_calMin_Click(object sender, EventArgs e)
+        //{
+        //    mf.p_238.pgn[mf.p_238.user2] = 111; //Cal min command
+        //    //btnSendMachinePGN.PerformClick();
+        //    SaveSettingsMachine();
+        //    Properties.Settings.Default.Save();
+        //}
 
-        private void btn_calMax_Click(object sender, EventArgs e)
-        {
-            mf.p_238.pgn[mf.p_238.user2] = 222; //Cal max command
-            btnSendMachinePGN.PerformClick();
-        }
+        //private void btn_calMax_Click(object sender, EventArgs e)
+        //{
+        //    mf.p_238.pgn[mf.p_238.user2] = 222; //Cal max command
+        //    //btnSendMachinePGN.PerformClick();
+        //    SaveSettingsMachine();
+        //    Properties.Settings.Default.Save();
+        //}
 
-        public void button2_Click(object sender, EventArgs e)
-        {
-            SaveSettingsMachine();
-
-            Properties.Settings.Default.Save();
-
-        }
 
         private void btnSubPlough_Click(object sender, EventArgs e)
         {
@@ -398,6 +395,44 @@ namespace AgOpenGPS
             Properties.Settings.Default.Save();
         }
 
-       
+        private void btnSetPwmMax_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.setArdMac_user6 = (byte)nudPwmMax.Value;
+            SaveSettingsMachine();
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnSetPwmMin_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.setArdMac_user7 = (byte)nudPwmMin.Value;
+            SaveSettingsMachine();
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnSetPwm_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.setArdMac_user8 = (byte)nudPwmSet.Value;
+            SaveSettingsMachine();
+            Properties.Settings.Default.Save();
+
+        }
+
+
+        private void btn_calMin_Click(object sender, EventArgs e)
+        {
+            mf.p_238.pgn[mf.p_238.user2] = 111; //Cal min command
+            SaveSettingsMachine();
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void btn_calMax_Click(object sender, EventArgs e)
+        {
+            mf.p_238.pgn[mf.p_238.user2] = 222; //Cal max command
+           
+            SaveSettingsMachine();
+
+            Properties.Settings.Default.Save();
+        }
     }
 }

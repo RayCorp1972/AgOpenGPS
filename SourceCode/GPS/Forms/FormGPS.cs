@@ -28,7 +28,7 @@ namespace AgOpenGPS
     //the main form object
 
 
-   
+
     public partial class FormGPS : Form
     {
         //To bring forward AgIO if running
@@ -103,6 +103,9 @@ namespace AgOpenGPS
 
         //whether or not to use Stanley control
         public bool isStanleyUsed = true;
+
+        
+
 
         public int pbarSteer, pbarMachine, pbarUDP;
 
@@ -246,7 +249,7 @@ namespace AgOpenGPS
         /// The new brightness code
         /// </summary>
         /// 
-     
+
 
         private void panelRight_Paint(object sender, PaintEventArgs e)
         {
@@ -365,7 +368,7 @@ namespace AgOpenGPS
                 form.ShowDialog(this);
             }
 
-
+           
 
             this.MouseWheel += ZoomByMouseWheel;
 
@@ -380,7 +383,7 @@ namespace AgOpenGPS
             oglMain.Left = 75;
             oglMain.Width = this.Width - statusStripLeft.Width - 84;
 
-            panelSim.Left = Width/2 -330;
+            panelSim.Left = Width / 2 - 330;
             panelSim.Width = 700;
             panelSim.Top = Height - 60;
 
@@ -555,6 +558,43 @@ namespace AgOpenGPS
             //}
         }
 
+        private void btnPloughControl_Click(object sender, EventArgs e)
+        {
+            if (isPlougOn)
+            {
+                // Load images from resources
+                Image plAuto1 = Resources.plAuto1;
+                Image plMan = Resources.plMan;
+
+                // Check if the background image is plAuto1
+                if (IsSameImage(btnPloughControl.BackgroundImage, plAuto1))
+                {
+                    btnPloughControl.BackgroundImage = plMan;
+                }
+                // Check if the background image is plMan
+                else if (IsSameImage(btnPloughControl.BackgroundImage, plMan))
+                {
+                    btnPloughControl.BackgroundImage = plAuto1;
+                }
+            }
+        }
+
+        private bool IsSameImage(Image img1, Image img2)
+        {
+            if (img1 == null || img2 == null)
+            {
+                return false;
+            }
+
+            using (MemoryStream ms1 = new MemoryStream(), ms2 = new MemoryStream())
+            {
+                img1.Save(ms1, img1.RawFormat);
+                img2.Save(ms2, img2.RawFormat);
+                return ms1.ToArray().SequenceEqual(ms2.ToArray());
+            }
+        }
+
+
         private void FormGPS_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form f = Application.OpenForms["FormGPSData"];
@@ -725,12 +765,12 @@ namespace AgOpenGPS
             Lift, SteerPointer,
             SteerDot, Tractor, QuestionMark,
             FrontWheels, FourWDFront, FourWDRear,
-            Harvester, 
-            Lateral, bingGrid, 
-            NoGPS, ZoomIn48, ZoomOut48, 
-            Pan, MenuHideShow, 
+            Harvester,
+            Lateral, bingGrid,
+            NoGPS, ZoomIn48, ZoomOut48,
+            Pan, MenuHideShow,
             ToolWheels, Tire, TramDot,
-            RateMap1, RateMap2, RateMap3, 
+            RateMap1, RateMap2, RateMap3,
             YouTurnU, YouTurnH, AutoPlough
         }
 
@@ -745,13 +785,13 @@ namespace AgOpenGPS
                 Resources.z_Compass,Resources.z_Speedo,Resources.z_SpeedoNeedle,
                 Resources.z_Lift,Resources.z_SteerPointer,
                 Resources.z_SteerDot,GetTractorBrand(Settings.Default.setBrand_TBrand),Resources.z_QuestionMark,
-                Resources.z_FrontWheels,Get4WDBrandFront(Settings.Default.setBrand_WDBrand), 
+                Resources.z_FrontWheels,Get4WDBrandFront(Settings.Default.setBrand_WDBrand),
                 Get4WDBrandRear(Settings.Default.setBrand_WDBrand),
-                GetHarvesterBrand(Settings.Default.setBrand_HBrand), 
-                Resources.z_LateralManual, Resources.z_bingMap, 
-                Resources.z_NoGPS, Resources.ZoomIn48, Resources.ZoomOut48, 
+                GetHarvesterBrand(Settings.Default.setBrand_HBrand),
+                Resources.z_LateralManual, Resources.z_bingMap,
+                Resources.z_NoGPS, Resources.ZoomIn48, Resources.ZoomOut48,
                 Resources.Pan, Resources.MenuHideShow,
-                Resources.z_Tool, Resources.z_Tire, Resources.z_TramOnOff, 
+                Resources.z_Tool, Resources.z_Tire, Resources.z_TramOnOff,
                 Resources.z_RateMap1, Resources.z_RateMap2, Resources.z_RateMap3,
                 Resources.YouTurnU, Resources.YouTurnH, Resources.AutoPlough
             };
@@ -797,19 +837,29 @@ namespace AgOpenGPS
         }
 
         public void PwmPloughManualSetPlus()
-        {                      
-            
-            
-            Properties.Settings.Default.setArdMac_user1 = 220;
-           
+        {
+
+
+            ploughWidth = Properties.Settings.Default.setArdMac_user1;
+            byte incrementAmount = Properties.Settings.Default.setArdMac_user8; // You can adjust this value to change the increment amount
+            ploughWidth += incrementAmount;
+            Properties.Settings.Default.setArdMac_user1 = (byte)ploughWidth;
+            SendPgnToLoop(p_238.pgn);
+            Properties.Settings.Default.Save(); 
         }
 
 
         public void PwmPloughManualSetMin()
         {
-
-            ploughWidth--;
+            ploughWidth = Properties.Settings.Default.setArdMac_user1;
+            byte decrementAmount = Properties.Settings.Default.setArdMac_user8;
+            ploughWidth -= decrementAmount;
             Properties.Settings.Default.setArdMac_user1 = (byte)ploughWidth;
+            SendPgnToLoop(p_238.pgn);
+            Properties.Settings.Default.Save();
+
+
+
 
         }
         public void KeyboardToText(TextBox sender, Form owner)
@@ -905,7 +955,10 @@ namespace AgOpenGPS
             btnAutoSteer.Enabled = true;
 
             DisableYouTurnButtons();
+
+           
             btnFlag.Enabled = true;
+           
 
             if (tool.isSectionsNotZones)
             {

@@ -6,7 +6,7 @@ namespace AgOpenGPS
 {
     public partial class FormAkkoord : Form
     {
-        public FormAkkoord(FormGPS formGPS)
+        public FormAkkoord(FormGPS form)
         {
             InitializeComponent();
         }

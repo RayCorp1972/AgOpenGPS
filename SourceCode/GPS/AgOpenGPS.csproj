@@ -921,6 +921,7 @@
     <EmbeddedResource Include="gStr.zh-CHS.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>gStr.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -984,7 +985,12 @@
     <None Include="Resources\onoff.png" />
     <None Include="Resources\Rotationsensor.png" />
     <Content Include="btnImages\Auto.png" />
+    <None Include="Resources\511510.png" />
     <None Include="Resources\Auto.png" />
+    <None Include="Resources\plAuto.png" />
+    <None Include="Resources\plAuto %282%29.png" />
+    <None Include="Resources\plAuto1.png" />
+    <None Include="Resources\plMan.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />

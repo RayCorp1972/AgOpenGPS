@@ -33,8 +33,10 @@ namespace AgOpenGPS
             nudUser1.Value = Properties.Settings.Default.setArdMac_user1;
             nudUser3.Value = 0;
             nudUser4.Value = 0;
-            nudDeadzone.Value = 10;
-            nudUser11.Value = Properties.Settings.Default.setArdMac_user11;
+            nudPwmMax.Value = Properties.Settings.Default.setArdMac_user6;
+            nudPwmMin.Value = Properties.Settings.Default.setArdMac_user7;
+            nudDeadzone.Value = Properties.Settings.Default.setArdMac_user5;
+            nudPwmSet.Value = Properties.Settings.Default.setArdMac_user11;
 
 
             mf.p_238.pgn[mf.p_238.user2] = 0;
@@ -46,7 +48,6 @@ namespace AgOpenGPS
         private void aPlough_Leave(object sender, EventArgs e)
         {
             SaveSettingsMachine();
-
         }
 
         private void tabAMachine_Enter(object sender, EventArgs e)
@@ -80,15 +81,6 @@ namespace AgOpenGPS
             nudRaiseTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydRaiseTime;
             nudLowerTime.Value = (decimal)Properties.Settings.Default.setArdMac_hydLowerTime;
 
-
-            //nudUser1.Value = Properties.Settings.Default.setArdMac_user1; 
-            //nudUser3.Value = 0;
-            //nudUser4.Value = 0;
-            //nudDeadzone.Value = 10;
-
-
-            mf.p_238.pgn[mf.p_238.user2] = 0;
-
             btnSendMachinePGN.Focus();
 
             nudHydLiftLookAhead.Value = (decimal)Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead;
@@ -99,6 +91,22 @@ namespace AgOpenGPS
         }
 
         private void nudHydLiftSecs_Click(object sender, EventArgs e)
+        {
+            if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
+            {
+                pboxSendMachine.Visible = true;
+            }
+        }
+
+        private void nudPwmMin_Click(object sender, EventArgs e)
+        {
+            if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
+            {
+                pboxSendMachine.Visible = true;
+            }
+        }
+
+        private void nudPwmMax_Click(object sender, EventArgs e)
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
             {
@@ -134,7 +142,7 @@ namespace AgOpenGPS
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
             {
-                pboxSendMachine.Visible = true;
+                
             }
         }
 
@@ -142,7 +150,7 @@ namespace AgOpenGPS
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
             {
-                pboxSendMachine.Visible = true;
+                
             }
         }
 
@@ -150,7 +158,7 @@ namespace AgOpenGPS
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
             {
-                pboxSendMachine.Visible = true;
+                
             }
         }
 
@@ -158,7 +166,7 @@ namespace AgOpenGPS
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
             {
-                pboxSendMachine.Visible = true;
+                
             }
         }
 
@@ -166,7 +174,7 @@ namespace AgOpenGPS
         {
             if (mf.KeypadToNUD((NudlessNumericUpDown)sender, this))
             {
-                pboxSendMachine.Visible = true;
+               
 
             }
         }
@@ -209,14 +217,15 @@ namespace AgOpenGPS
             Properties.Settings.Default.setArdMac_hydLowerTime = (byte)nudLowerTime.Value;
 
 
-            Properties.Settings.Default.setArdMac_user1 =(byte)nudUser1.Value;
+            Properties.Settings.Default.setArdMac_user1 = (byte)(nudUser1.Value);
             Properties.Settings.Default.setArdMac_user2 = 0;
             Properties.Settings.Default.setArdMac_user3 = 0;
             Properties.Settings.Default.setArdMac_user4 = 0;
-            Properties.Settings.Default.setArdMac_user5 = (byte)nudDeadzone.Value;
-            Properties.Settings.Default.setArdMac_user11 = (byte)nudUser11.Value;
-            //Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1.Value;
-            //Properties.Settings.Default.setArdMac_user1 = (byte)nudUser1.Value;
+            Properties.Settings.Default.setArdMac_user5 = (byte)nudDeadzone.Value; // Deadzone
+            Properties.Settings.Default.setArdMac_user6 = (byte)nudPwmMax.Value; // Pwm max
+            Properties.Settings.Default.setArdMac_user7 = (byte)nudPwmMin.Value; // Pwm Min
+            Properties.Settings.Default.setArdMac_user8 = (byte)nudPwmSet.Value; // PwmSet
+        
 
             Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead = (double)nudHydLiftLookAhead.Value;
             mf.vehicle.hydLiftLookAheadTime = Properties.Settings.Default.setVehicle_hydraulicLiftLookAhead;
@@ -225,13 +234,20 @@ namespace AgOpenGPS
             mf.p_238.pgn[mf.p_238.raiseTime] = (byte)nudRaiseTime.Value;
             mf.p_238.pgn[mf.p_238.lowerTime] = (byte)nudLowerTime.Value;
 
-            mf.p_238.pgn[mf.p_238.user1] = (byte)(nudUser1.Value - 100);         //Target width cm 
-                                                                                 //mf.p_238.pgn[mf.p_238.user2] = (byte)nudUser2.Value;              //Calabration instruction
+            mf.p_238.pgn[mf.p_238.user1] = (byte)(nudUser1.Value);                        //Target width cm 
+            mf.p_238.pgn[mf.p_238.user5] = (byte)nudDeadzone.Value;
+            mf.p_238.pgn[mf.p_238.user6] = (byte)nudPwmMax.Value;
+            mf.p_238.pgn[mf.p_238.user7] = (byte)nudPwmMin.Value;
+            mf.p_238.pgn[mf.p_238.user8] = (byte)nudPwmSet.Value;
+
+
             int calValue = (int)nudUser4.Value;
             mf.p_238.pgn[mf.p_238.user3] = (byte)calValue;                      //Calabration value L
             mf.p_238.pgn[mf.p_238.user4] = (byte)(calValue >> 8);               //Calabration value H
+
+       
+
             
-            mf.p_238.pgn[mf.p_238.user5] = (byte)nudDeadzone.Value;
             
             mf.SendPgnToLoop(mf.p_238.pgn);
             pboxSendMachine.Visible = false;
@@ -635,6 +651,7 @@ namespace AgOpenGPS
                 Properties.Settings.Default.setTram_tramWidth = mf.tram.tramWidth;
             }
         }
+
 
         #endregion
 

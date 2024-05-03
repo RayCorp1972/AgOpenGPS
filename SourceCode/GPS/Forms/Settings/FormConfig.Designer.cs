@@ -461,8 +461,6 @@
             this.pboxSendMachine = new System.Windows.Forms.PictureBox();
             this.cboxMachInvertRelays = new System.Windows.Forms.CheckBox();
             this.btnSendMachinePGN = new System.Windows.Forms.Button();
-            this.nudUser2 = new AgOpenGPS.NudlessNumericUpDown();
-            this.nudUser3 = new AgOpenGPS.NudlessNumericUpDown();
             this.tabTram = new System.Windows.Forms.TabPage();
             this.label111 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
@@ -543,8 +541,9 @@
             this.chkDisplayExtraGuides = new System.Windows.Forms.CheckBox();
             this.aPlough = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnSetPwm = new System.Windows.Forms.Button();
             this.lblStepsManual = new System.Windows.Forms.Label();
-            this.nudUser11 = new AgOpenGPS.NudlessNumericUpDown();
+            this.nudPwmSet = new AgOpenGPS.NudlessNumericUpDown();
             this.btnSetWidth = new System.Windows.Forms.Button();
             this.label187 = new System.Windows.Forms.Label();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -569,6 +568,8 @@
             this.label151 = new System.Windows.Forms.Label();
             this.nudUser1 = new AgOpenGPS.NudlessNumericUpDown();
             this.chbPloeg = new System.Windows.Forms.CheckBox();
+            this.nudUser3 = new AgOpenGPS.NudlessNumericUpDown();
+            this.nudUser2 = new AgOpenGPS.NudlessNumericUpDown();
             this.lblCurrentVehicle = new System.Windows.Forms.Label();
             this.lblInchesCm = new System.Windows.Forms.Label();
             this.lblSecTotalWidthMeters = new System.Windows.Forms.Label();
@@ -580,8 +581,6 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.nudUser2 = new AgOpenGPS.NudlessNumericUpDown();
-            this.nudUser3 = new AgOpenGPS.NudlessNumericUpDown();
             this.panelLeftSideMenu.SuspendLayout();
             this.panelArduinoSubMenu.SuspendLayout();
             this.panelDataSourcesSubMenu.SuspendLayout();
@@ -700,8 +699,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRaiseTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxSendMachine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.nudUser3_oLD)).BeginInit();
             this.tabTram.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTramWidth)).BeginInit();
@@ -710,15 +707,15 @@
             this.unitsGroupBox.SuspendLayout();
             this.aPlough.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPwmSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPwmMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPwmMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDeadzone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser1)).BeginInit();
-            this.panelBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).BeginInit();
+            this.panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLeftSideMenu
@@ -739,7 +736,7 @@
             this.panelLeftSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSideMenu.Location = new System.Drawing.Point(4, 4);
             this.panelLeftSideMenu.Name = "panelLeftSideMenu";
-            this.panelLeftSideMenu.Size = new System.Drawing.Size(120, 701);
+            this.panelLeftSideMenu.Size = new System.Drawing.Size(120, 698);
             this.panelLeftSideMenu.TabIndex = 110;
             // 
             // btnFeatureHides
@@ -8010,8 +8007,6 @@
             this.tabAMachine.Controls.Add(this.pboxSendMachine);
             this.tabAMachine.Controls.Add(this.cboxMachInvertRelays);
             this.tabAMachine.Controls.Add(this.btnSendMachinePGN);
-            this.tabAMachine.Controls.Add(this.nudUser2);
-            this.tabAMachine.Controls.Add(this.nudUser3);
             this.tabAMachine.Location = new System.Drawing.Point(4, 44);
             this.tabAMachine.Name = "tabAMachine";
             this.tabAMachine.Size = new System.Drawing.Size(854, 584);
@@ -8310,10 +8305,6 @@
             this.btnSendMachinePGN.TabIndex = 1;
             this.btnSendMachinePGN.UseVisualStyleBackColor = false;
             this.btnSendMachinePGN.Click += new System.EventHandler(this.btnSendMachinePGN_Click);
-            // 
-
-            // 
-            
             // 
             // tabTram
             // 
@@ -9676,8 +9667,9 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btnSetPwm);
             this.groupBox6.Controls.Add(this.lblStepsManual);
-            this.groupBox6.Controls.Add(this.nudUser11);
+            this.groupBox6.Controls.Add(this.nudPwmSet);
             this.groupBox6.Controls.Add(this.btnSetWidth);
             this.groupBox6.Controls.Add(this.label187);
             this.groupBox6.Controls.Add(this.checkBox4);
@@ -9712,6 +9704,17 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Plough Control";
             // 
+            // btnSetPwm
+            // 
+            this.btnSetPwm.Location = new System.Drawing.Point(517, 282);
+            this.btnSetPwm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSetPwm.Name = "btnSetPwm";
+            this.btnSetPwm.Size = new System.Drawing.Size(113, 36);
+            this.btnSetPwm.TabIndex = 543;
+            this.btnSetPwm.Text = "Set";
+            this.btnSetPwm.UseVisualStyleBackColor = true;
+            this.btnSetPwm.Click += new System.EventHandler(this.btnSetPwm_Click);
+            // 
             // lblStepsManual
             // 
             this.lblStepsManual.AutoSize = true;
@@ -9723,29 +9726,29 @@
             this.lblStepsManual.TabIndex = 540;
             this.lblStepsManual.Text = "Step Width";
             // 
-            // nudUser11
+            // nudPwmSet
             // 
-            this.nudUser11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudUser11.BackColor = System.Drawing.Color.AliceBlue;
-            this.nudUser11.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudUser11.InterceptArrowKeys = false;
-            this.nudUser11.Location = new System.Drawing.Point(516, 225);
-            this.nudUser11.Maximum = new decimal(new int[] {
+            this.nudPwmSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudPwmSet.BackColor = System.Drawing.Color.AliceBlue;
+            this.nudPwmSet.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudPwmSet.InterceptArrowKeys = false;
+            this.nudPwmSet.Location = new System.Drawing.Point(517, 225);
+            this.nudPwmSet.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.nudUser11.Name = "nudUser11";
-            this.nudUser11.ReadOnly = true;
-            this.nudUser11.Size = new System.Drawing.Size(114, 52);
-            this.nudUser11.TabIndex = 539;
-            this.nudUser11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudUser11.Value = new decimal(new int[] {
+            this.nudPwmSet.Name = "nudPwmSet";
+            this.nudPwmSet.ReadOnly = true;
+            this.nudPwmSet.Size = new System.Drawing.Size(114, 52);
+            this.nudPwmSet.TabIndex = 539;
+            this.nudPwmSet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPwmSet.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.nudUser11.Click += new System.EventHandler(this.nudUser11_Click);
+            this.nudPwmSet.Click += new System.EventHandler(this.nudUser11_Click);
             // 
             // btnSetWidth
             // 
@@ -9807,6 +9810,7 @@
             this.btnSetPwmMax.TabIndex = 533;
             this.btnSetPwmMax.Text = "Set";
             this.btnSetPwmMax.UseVisualStyleBackColor = true;
+            this.btnSetPwmMax.Click += new System.EventHandler(this.btnSetPwmMax_Click);
             // 
             // label186
             // 
@@ -9841,6 +9845,7 @@
             0,
             0,
             0});
+            this.nudPwmMax.Click += new System.EventHandler(this.nudPwmMax_Click);
             // 
             // label185
             // 
@@ -9875,6 +9880,7 @@
             0,
             0,
             0});
+            this.nudPwmMin.Click += new System.EventHandler(this.nudPwmMin_Click);
             // 
             // label184
             // 
@@ -10000,7 +10006,7 @@
             this.btn_calMax.Name = "btn_calMax";
             this.btn_calMax.Size = new System.Drawing.Size(97, 36);
             this.btn_calMax.TabIndex = 514;
-            this.btn_calMax.Text = "Cal Max (cm)";
+            this.btn_calMax.Text = "Cal Max ";
             this.btn_calMax.UseVisualStyleBackColor = true;
             this.btn_calMax.Click += new System.EventHandler(this.btn_calMax_Click);
             // 
@@ -10035,7 +10041,7 @@
             this.btn_calMin.Name = "btn_calMin";
             this.btn_calMin.Size = new System.Drawing.Size(98, 36);
             this.btn_calMin.TabIndex = 515;
-            this.btn_calMin.Text = "Cal Min (cm)";
+            this.btn_calMin.Text = "Cal Min ";
             this.btn_calMin.UseVisualStyleBackColor = true;
             this.btn_calMin.Click += new System.EventHandler(this.btn_calMin_Click);
             // 
@@ -10069,7 +10075,7 @@
             this.nudUser1.InterceptArrowKeys = false;
             this.nudUser1.Location = new System.Drawing.Point(181, 225);
             this.nudUser1.Maximum = new decimal(new int[] {
-            255,
+            500,
             0,
             0,
             0});
@@ -10104,6 +10110,53 @@
             this.chbPloeg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chbPloeg.UseVisualStyleBackColor = false;
             this.chbPloeg.CheckedChanged += new System.EventHandler(this.chbPloeg_CheckedChanged);
+            // 
+            // nudUser3
+            // 
+            this.nudUser3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudUser3.BackColor = System.Drawing.Color.AliceBlue;
+            this.nudUser3.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudUser3.InterceptArrowKeys = false;
+            this.nudUser3.Location = new System.Drawing.Point(6, 173);
+            this.nudUser3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudUser3.Name = "nudUser3";
+            this.nudUser3.ReadOnly = true;
+            this.nudUser3.Size = new System.Drawing.Size(114, 52);
+            this.nudUser3.TabIndex = 542;
+            this.nudUser3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudUser3.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudUser3.Click += new System.EventHandler(this.nudUser3_Click);
+            // 
+            // nudUser2
+            // 
+            this.nudUser2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudUser2.BackColor = System.Drawing.Color.AliceBlue;
+            this.nudUser2.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudUser2.InterceptArrowKeys = false;
+            this.nudUser2.Location = new System.Drawing.Point(13, 245);
+            this.nudUser2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudUser2.Name = "nudUser2";
+            this.nudUser2.ReadOnly = true;
+            this.nudUser2.Size = new System.Drawing.Size(114, 52);
+            this.nudUser2.TabIndex = 541;
+            this.nudUser2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudUser2.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             // 
             // lblCurrentVehicle
             // 
@@ -10194,7 +10247,7 @@
             this.panelBottom.Controls.Add(this.label22);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.ForeColor = System.Drawing.Color.Lime;
-            this.panelBottom.Location = new System.Drawing.Point(124, 639);
+            this.panelBottom.Location = new System.Drawing.Point(124, 636);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(862, 66);
             this.panelBottom.TabIndex = 112;
@@ -10248,61 +10301,12 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // nudUser2
-            // 
-            this.nudUser2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudUser2.BackColor = System.Drawing.Color.AliceBlue;
-            this.nudUser2.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudUser2.InterceptArrowKeys = false;
-            this.nudUser2.Location = new System.Drawing.Point(516, 225);
-            this.nudUser2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nudUser2.Name = "nudUser2";
-            this.nudUser2.ReadOnly = true;
-            this.nudUser2.Size = new System.Drawing.Size(114, 52);
-            this.nudUser2.TabIndex = 541;
-            this.nudUser2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudUser2.Value = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nudUser2.Visible = false;
-            // 
-            // nudUser3
-            // 
-            this.nudUser3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudUser3.BackColor = System.Drawing.Color.AliceBlue;
-            this.nudUser3.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudUser3.InterceptArrowKeys = false;
-            this.nudUser3.Location = new System.Drawing.Point(181, 225);
-            this.nudUser3.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nudUser3.Name = "nudUser3";
-            this.nudUser3.ReadOnly = true;
-            this.nudUser3.Size = new System.Drawing.Size(114, 52);
-            this.nudUser3.TabIndex = 542;
-            this.nudUser3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudUser3.Value = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.nudUser3.Click += new System.EventHandler(this.nudUser3_Click);
-            this.nudUser3.Visible = false;
-            // 
             // FormConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(990, 709);
+            this.ClientSize = new System.Drawing.Size(990, 706);
             this.ControlBox = false;
             this.Controls.Add(this.tab1);
             this.Controls.Add(this.panelBottom);
@@ -10457,8 +10461,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRaiseTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxSendMachine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser3)).EndInit();
             this.tabTram.ResumeLayout(false);
             this.tabTram.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -10471,16 +10473,16 @@
             this.aPlough.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPwmSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPwmMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPwmMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDeadzone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUser1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUser3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).EndInit();
             this.panelBottom.ResumeLayout(false);
             this.panelBottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUser3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -10802,8 +10804,7 @@
         private System.Windows.Forms.Label label144;
         private System.Windows.Forms.Label label145;
         private System.Windows.Forms.Label label146;
-        private System.Windows.Forms.Label label147;
-        private NudlessNumericUpDown nudUser3_oLD;
+        private System.Windows.Forms.Label label147;        
         private System.Windows.Forms.CheckBox chkSetAutoSections;
         private System.Windows.Forms.GroupBox grpSwitch;
         private System.Windows.Forms.Label label12;
@@ -11005,7 +11006,7 @@
         private System.Windows.Forms.CheckBox cboxDisplayTramControl;
         private System.Windows.Forms.Label label111;
 
-        private NudlessNumericUpDown nudUser2_oLD;
+        
        
         //private System.Windows.Forms.CheckBox chbPloeg_Old;
       
@@ -11037,8 +11038,9 @@
         public System.Windows.Forms.Button btnSetWidth;
         public NudlessNumericUpDown nudUser1;
         private System.Windows.Forms.Label lblStepsManual;
-        public NudlessNumericUpDown nudUser11;
+        public NudlessNumericUpDown nudPwmSet;
         private NudlessNumericUpDown nudUser2;
         private NudlessNumericUpDown nudUser3;
+        public System.Windows.Forms.Button btnSetPwm;
     }
 }

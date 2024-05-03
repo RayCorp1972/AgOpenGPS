@@ -3035,5 +3035,41 @@ namespace AgOpenGPS.Properties {
                 this["setArdMac_user11"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setaPloughOn {
+            get {
+                return ((bool)(this["setaPloughOn"]));
+            }
+            set {
+                this["setaPloughOn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setPlougAuto {
+            get {
+                return ((bool)(this["setPlougAuto"]));
+            }
+            set {
+                this["setPlougAuto"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setPloughMan {
+            get {
+                return ((bool)(this["setPloughMan"]));
+            }
+            set {
+                this["setPloughMan"] = value;
+            }
+        }
     }
 }

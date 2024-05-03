@@ -54,7 +54,7 @@ namespace AgOpenGPS
 
         //Is it in 2D or 3D, metric or imperial, display lightbar, display grid etc
         public bool isMetric = true, isLightbarOn = true, isGridOn, isFullScreen;
-        public bool isUTurnAlwaysOn, isCompassOn, isSpeedoOn, isPlougOn, isPwmOn, isBlackWhiteOn, isRotationSensorOn, isSideGuideLines = true;
+        public bool isUTurnAlwaysOn, isCompassOn, isSpeedoOn, isPlougOn, isPwmOn, setPloughAuto, setPloughMan, isBlackWhiteOn, isRotationSensorOn, isSideGuideLines = true;
         public bool isPureDisplayOn = true, isSkyOn = true, isRollMeterOn = false, isTextureOn = true;
         public bool isDay = true, isDayTime = true, isBrightnessOn = true;
         public bool isLogElevation = false;
@@ -564,6 +564,7 @@ namespace AgOpenGPS
             if (timerSim.Enabled) gpsHz = 10;
 
             //set the flag mark button to red dot
+
             btnFlag.Image = Properties.Resources.FlagRed;
 
             vehicleColor = Settings.Default.setDisplay_colorVehicle.CheckColorFor255();

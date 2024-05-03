@@ -4,6 +4,8 @@ using OpenTK.Graphics.OpenGL;
 using System.Windows.Forms;
 using System.Text;
 
+
+
 namespace AgOpenGPS
 {
     public partial class FormGPS
@@ -379,9 +381,10 @@ namespace AgOpenGPS
                     DrawCompassText();
 
                     // Plough Text in MainGL
-
-                    if (isPlougOn) Plougcontrol();
-
+                    if (isJobStarted)
+                    {
+                        if (isPlougOn) Plougcontrol();
+                    }
                     if (isSpeedoOn) DrawSpeedo();
 
                     DrawSteerCircle();
@@ -2562,9 +2565,11 @@ namespace AgOpenGPS
             String Wider = (gStr.gsWider);
             String Max = (gStr.gsMax);
             String Min = (gStr.gsMin);
-            String Smaller = (gStr.gsSmaller);
+            String Narrow = (gStr.gsSmaller);
             String Abline = (gStr.gsNoline);
             String SectionOff = (gStr.gsSectionoff);
+
+
 
 
 
@@ -2576,21 +2581,21 @@ namespace AgOpenGPS
             font.DrawText(center + 10, 180, DesiredPloughWidth + ": " + (decimal)Properties.Settings.Default.setArdMac_user1 + "cm", 0.7);
             font.DrawText(center + 10, 210, CurrentPloughWidth + ": " + ploughWidth.ToString() + "cm", 0.7);
             font.DrawText(center + 10, 240, Deadzone + ": " + (decimal)Properties.Settings.Default.setArdMac_user5 + "mm", 0.7);
-            font.DrawText(center + 25, 310, "Wider    Narrow", 0.7);
+            font.DrawText(center + 25, 310, "" + Wider + "    " + Narrow , 0.6);
             if (ploughMode == 0) font.DrawText(center + 10, 270, SectionOff, 0.7);
             else if (ploughMode == 1) font.DrawText(center + 10, 270, AutoConfig, 1);
             else if (ploughMode == 2) font.DrawText(center + 10, 270, AutoSwitch, 1);
             else if (ploughMode == 3) font.DrawText(center + 10, 270, Hold, 1);
             else if (ploughMode == 4) font.DrawText(center + 10, 270, Wider, 1);
             else if (ploughMode == 5) font.DrawText(center + 10, 270, Max, 1);
-            else if (ploughMode == 6) font.DrawText(center + 10, 270, Smaller, 1);
+            else if (ploughMode == 6) font.DrawText(center + 10, 270, Narrow, 1);
             else if (ploughMode == 7) font.DrawText(center + 10, 270, Min, 1);
             else if (ploughMode == 8) font.DrawText(center + 10, 270, Abline, 1);
 
-
-            PlougPwmMinus();
-            PlougPwmPlus();
-
+           
+                //PlougPwmMinus();
+                //PlougPwmPlus();
+           
 
 
         }
@@ -2598,21 +2603,29 @@ namespace AgOpenGPS
         private void PlougPwmMinus()
         {
 
-            GL.Enable(EnableCap.Texture2D);      // Select Our Texture
-            GL.Color3(0.90f, 0.90f, 0.93f);
-            GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomOut48]);        // Select Our Texture
-            GL.Begin(PrimitiveType.Quads);
+            
+            
+                GL.Enable(EnableCap.Texture2D);      // Select Our Texture
+                GL.Color3(0.90f, 0.90f, 0.93f);
+                GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomOut48]);        // Select Our Texture
+                GL.Begin(PrimitiveType.Quads);
 
-            int hite = 365;
-            int center2 = oglMain.Width / -2 + 150;
-            {
-                GL.TexCoord2(0, 0); GL.Vertex2(center2, hite - 32); // 
-                GL.TexCoord2(1, 0); GL.Vertex2(center2 + 32, hite - 32); // 
-                GL.TexCoord2(1, 1); GL.Vertex2(center2 + 32, hite); // 
-                GL.TexCoord2(0, 1); GL.Vertex2(center2, hite); //
-            }
-            GL.End();
+                int hite = 365;
+                int center2 = oglMain.Width / -2 + 150;
+                {
+                    GL.TexCoord2(0, 0); GL.Vertex2(center2, hite - 32); // 
+                    GL.TexCoord2(1, 0); GL.Vertex2(center2 + 32, hite - 32); // 
+                    GL.TexCoord2(1, 1); GL.Vertex2(center2 + 32, hite); // 
+                    GL.TexCoord2(0, 1); GL.Vertex2(center2, hite); //
+                }
+                GL.End();
+            
+            // Check if the background image is plMan
+            
+          
         }
+
+       
 
 
         private void PlougPwmPlus()
