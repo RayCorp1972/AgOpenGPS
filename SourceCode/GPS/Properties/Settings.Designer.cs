@@ -2943,12 +2943,12 @@ namespace AgOpenGPS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool setDisplay_isPlougOn {
+        public bool setPlough_isPlougOn {
             get {
-                return ((bool)(this["setDisplay_isPlougOn"]));
+                return ((bool)(this["setPlough_isPlougOn"]));
             }
             set {
-                this["setDisplay_isPlougOn"] = value;
+                this["setPlough_isPlougOn"] = value;
             }
         }
         
@@ -3039,36 +3039,72 @@ namespace AgOpenGPS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool setaPloughOn {
+        public bool setPlough_On {
             get {
-                return ((bool)(this["setaPloughOn"]));
+                return ((bool)(this["setPlough_On"]));
             }
             set {
-                this["setaPloughOn"] = value;
+                this["setPlough_On"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool setPlougAuto {
+        public bool setPlough_isAutoOn {
             get {
-                return ((bool)(this["setPlougAuto"]));
+                return ((bool)(this["setPlough_isAutoOn"]));
             }
             set {
-                this["setPlougAuto"] = value;
+                this["setPlough_isAutoOn"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool setPloughMan {
+        public bool setPlough_isManOn {
             get {
-                return ((bool)(this["setPloughMan"]));
+                return ((bool)(this["setPlough_isManOn"]));
             }
             set {
-                this["setPloughMan"] = value;
+                this["setPlough_isManOn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setPlough_isPwmOn {
+            get {
+                return ((bool)(this["setPlough_isPwmOn"]));
+            }
+            set {
+                this["setPlough_isPwmOn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setPlough_IsBlackWhiteOn {
+            get {
+                return ((bool)(this["setPlough_IsBlackWhiteOn"]));
+            }
+            set {
+                this["setPlough_IsBlackWhiteOn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setPlough_isRotationSensorOn {
+            get {
+                return ((bool)(this["setPlough_isRotationSensorOn"]));
+            }
+            set {
+                this["setPlough_isRotationSensorOn"] = value;
             }
         }
     }

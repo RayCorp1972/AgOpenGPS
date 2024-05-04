@@ -731,7 +731,7 @@
     <Setting Name="setAS_uTurnCompensation" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="setDisplay_isPlougOn" Type="System.Boolean" Scope="User">
+    <Setting Name="setPlough_isPlougOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="setArdMac_user5" Type="System.Byte" Scope="User">
@@ -755,13 +755,22 @@
     <Setting Name="setArdMac_user11" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">11</Value>
     </Setting>
-    <Setting Name="setaPloughOn" Type="System.Boolean" Scope="User">
+    <Setting Name="setPlough_On" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="setPlougAuto" Type="System.Boolean" Scope="User">
+    <Setting Name="setPlough_isAutoOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="setPloughMan" Type="System.Boolean" Scope="User">
+    <Setting Name="setPlough_isManOn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="setPlough_isPwmOn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="setPlough_IsBlackWhiteOn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="setPlough_isRotationSensorOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

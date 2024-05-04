@@ -526,7 +526,14 @@ namespace AgOpenGPS
 
             isGridOn = Settings.Default.setMenu_isGridOn;
             isBrightnessOn = Settings.Default.setDisplay_isBrightnessOn;
-            isPlougOn = Settings.Default.setDisplay_isPlougOn;
+
+            //plough
+            isPlougOn = Settings.Default.setPlough_isPlougOn;
+            isPwmOn = Settings.Default.setPlough_isPwmOn;
+            isBlackWhiteOn = Settings.Default.setPlough_IsBlackWhiteOn;
+            isRotationSensorOn = Settings.Default.setPlough_isRotationSensorOn;
+
+
             isCompassOn = Settings.Default.setMenu_isCompassOn;
             isSpeedoOn = Settings.Default.setMenu_isSpeedoOn;
             isSideGuideLines = Settings.Default.setMenu_isSideGuideLines;

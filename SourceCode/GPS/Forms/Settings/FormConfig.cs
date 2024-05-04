@@ -125,8 +125,15 @@ namespace AgOpenGPS
             mf.SaveFormGPSWindowSettings();
 
             //Checkbox image Plough control
-            chbPloeg.BackgroundImage = Properties.Resources.PloughOff;
+            //chbPloeg.BackgroundImage = Properties.Resources.PloughOff;
             chbPloeg.Checked = mf.isPlougOn;
+            chbPwm.Checked = mf.isPwmOn;
+            chbBlackWhite.Checked = mf.isBlackWhiteOn;
+            chbRotationSensor.Checked = mf.isRotationSensorOn;
+            //chbPwm.Checked = checked;
+
+
+
 
             //metric or imp on spinners min/maxes
             if (!mf.isMetric) FixMinMaxSpinners();
@@ -153,15 +160,46 @@ namespace AgOpenGPS
                 e.Cancel = true;
                 return;
             }
-
+            //Check button Ploughcontrol on/off
             if (chbPloeg.Checked)
             {
-                Properties.Settings.Default.setDisplay_isPlougOn = true;
+                Properties.Settings.Default.setPlough_isPlougOn = true;
             }
             else
             {
-                Properties.Settings.Default.setDisplay_isPlougOn = false;
+                Properties.Settings.Default.setPlough_isPlougOn = false;
             }
+
+            if (chbPwm.Checked)
+            {
+                Properties.Settings.Default.setPlough_isPwmOn = true;
+            }
+            else
+            {
+                Properties.Settings.Default.setPlough_isPwmOn = false;
+            }
+
+            if (chbBlackWhite.Checked)
+            {
+                Properties.Settings.Default.setPlough_IsBlackWhiteOn = true;
+            }
+            else
+            {
+                Properties.Settings.Default.setPlough_IsBlackWhiteOn = false;
+            }
+
+            if (chbRotationSensor.Checked)
+            {
+                Properties.Settings.Default.setPlough_isRotationSensorOn = true;
+            }
+            else
+            {
+                Properties.Settings.Default.setPlough_isRotationSensorOn = false;
+            }
+
+
+
+
 
             //reload all the settings from default and user.config
             mf.LoadSettings();
@@ -338,39 +376,7 @@ namespace AgOpenGPS
             Close();
             //FormConfig_Load(this, e);
         }
-        // Ploug Control Button on
-        private void chbPloeg_CheckedChanged(object sender, EventArgs e)
-        {
 
-            if (chbPloeg.Checked)
-            {
-                chbPloeg.BackgroundImage = Properties.Resources.PloughOn;
-
-
-            }
-            else
-            {
-                chbPloeg.BackgroundImage = Properties.Resources.PloughOff;
-
-            }
-
-        }
-
-        //private void btn_calMin_Click(object sender, EventArgs e)
-        //{
-        //    mf.p_238.pgn[mf.p_238.user2] = 111; //Cal min command
-        //    //btnSendMachinePGN.PerformClick();
-        //    SaveSettingsMachine();
-        //    Properties.Settings.Default.Save();
-        //}
-
-        //private void btn_calMax_Click(object sender, EventArgs e)
-        //{
-        //    mf.p_238.pgn[mf.p_238.user2] = 222; //Cal max command
-        //    //btnSendMachinePGN.PerformClick();
-        //    SaveSettingsMachine();
-        //    Properties.Settings.Default.Save();
-        //}
 
 
         private void btnSubPlough_Click(object sender, EventArgs e)

@@ -546,7 +546,7 @@
             this.nudPwmSet = new AgOpenGPS.NudlessNumericUpDown();
             this.btnSetWidth = new System.Windows.Forms.Button();
             this.label187 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.chbRotationSensor = new System.Windows.Forms.CheckBox();
             this.btnSetPwmMin = new System.Windows.Forms.Button();
             this.btnSetPwmMax = new System.Windows.Forms.Button();
             this.label186 = new System.Windows.Forms.Label();
@@ -555,8 +555,8 @@
             this.nudPwmMin = new AgOpenGPS.NudlessNumericUpDown();
             this.label184 = new System.Windows.Forms.Label();
             this.label183 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.cbPwm = new System.Windows.Forms.CheckBox();
+            this.chbBlackWhite = new System.Windows.Forms.CheckBox();
+            this.chbPwm = new System.Windows.Forms.CheckBox();
             this.nudDeadzone = new AgOpenGPS.NudlessNumericUpDown();
             this.btnSetDeadzone = new System.Windows.Forms.Button();
             this.label148 = new System.Windows.Forms.Label();
@@ -9672,7 +9672,7 @@
             this.groupBox6.Controls.Add(this.nudPwmSet);
             this.groupBox6.Controls.Add(this.btnSetWidth);
             this.groupBox6.Controls.Add(this.label187);
-            this.groupBox6.Controls.Add(this.checkBox4);
+            this.groupBox6.Controls.Add(this.chbRotationSensor);
             this.groupBox6.Controls.Add(this.btnSetPwmMin);
             this.groupBox6.Controls.Add(this.btnSetPwmMax);
             this.groupBox6.Controls.Add(this.label186);
@@ -9681,8 +9681,8 @@
             this.groupBox6.Controls.Add(this.nudPwmMin);
             this.groupBox6.Controls.Add(this.label184);
             this.groupBox6.Controls.Add(this.label183);
-            this.groupBox6.Controls.Add(this.checkBox3);
-            this.groupBox6.Controls.Add(this.cbPwm);
+            this.groupBox6.Controls.Add(this.chbBlackWhite);
+            this.groupBox6.Controls.Add(this.chbPwm);
             this.groupBox6.Controls.Add(this.nudDeadzone);
             this.groupBox6.Controls.Add(this.btnSetDeadzone);
             this.groupBox6.Controls.Add(this.label148);
@@ -9772,24 +9772,24 @@
             this.label187.TabIndex = 537;
             this.label187.Text = "Rotation sensor";
             // 
-            // checkBox4
+            // chbRotationSensor
             // 
-            this.checkBox4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkBox4.BackgroundImage = global::AgOpenGPS.Properties.Resources.Rotationsensor;
-            this.checkBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.checkBox4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.checkBox4.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumAquamarine;
-            this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox4.Location = new System.Drawing.Point(567, 44);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox4.Size = new System.Drawing.Size(82, 69);
-            this.checkBox4.TabIndex = 535;
-            this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox4.UseVisualStyleBackColor = false;
+            this.chbRotationSensor.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chbRotationSensor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.chbRotationSensor.BackgroundImage = global::AgOpenGPS.Properties.Resources.Rotationsensor;
+            this.chbRotationSensor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chbRotationSensor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.chbRotationSensor.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumAquamarine;
+            this.chbRotationSensor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chbRotationSensor.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRotationSensor.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chbRotationSensor.Location = new System.Drawing.Point(567, 44);
+            this.chbRotationSensor.Name = "chbRotationSensor";
+            this.chbRotationSensor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chbRotationSensor.Size = new System.Drawing.Size(82, 69);
+            this.chbRotationSensor.TabIndex = 535;
+            this.chbRotationSensor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chbRotationSensor.UseVisualStyleBackColor = false;
             // 
             // btnSetPwmMin
             // 
@@ -9904,43 +9904,43 @@
             this.label183.TabIndex = 527;
             this.label183.Text = "PWM Control";
             // 
-            // checkBox3
+            // chbBlackWhite
             // 
-            this.checkBox3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkBox3.BackgroundImage = global::AgOpenGPS.Properties.Resources.onoff;
-            this.checkBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.checkBox3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.checkBox3.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumAquamarine;
-            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox3.Location = new System.Drawing.Point(415, 44);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox3.Size = new System.Drawing.Size(82, 69);
-            this.checkBox3.TabIndex = 526;
-            this.checkBox3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox3.UseVisualStyleBackColor = false;
+            this.chbBlackWhite.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chbBlackWhite.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.chbBlackWhite.BackgroundImage = global::AgOpenGPS.Properties.Resources.onoff;
+            this.chbBlackWhite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chbBlackWhite.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.chbBlackWhite.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumAquamarine;
+            this.chbBlackWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chbBlackWhite.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbBlackWhite.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chbBlackWhite.Location = new System.Drawing.Point(415, 44);
+            this.chbBlackWhite.Name = "chbBlackWhite";
+            this.chbBlackWhite.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chbBlackWhite.Size = new System.Drawing.Size(82, 69);
+            this.chbBlackWhite.TabIndex = 526;
+            this.chbBlackWhite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chbBlackWhite.UseVisualStyleBackColor = false;
             // 
-            // cbPwm
+            // chbPwm
             // 
-            this.cbPwm.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbPwm.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbPwm.BackgroundImage = global::AgOpenGPS.Properties.Resources.PWM;
-            this.cbPwm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbPwm.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.cbPwm.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumAquamarine;
-            this.cbPwm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPwm.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPwm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbPwm.Location = new System.Drawing.Point(263, 44);
-            this.cbPwm.Name = "cbPwm";
-            this.cbPwm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbPwm.Size = new System.Drawing.Size(82, 69);
-            this.cbPwm.TabIndex = 525;
-            this.cbPwm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbPwm.UseVisualStyleBackColor = false;
+            this.chbPwm.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chbPwm.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.chbPwm.BackgroundImage = global::AgOpenGPS.Properties.Resources.PWM;
+            this.chbPwm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chbPwm.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.chbPwm.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumAquamarine;
+            this.chbPwm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chbPwm.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbPwm.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chbPwm.Location = new System.Drawing.Point(263, 44);
+            this.chbPwm.Name = "chbPwm";
+            this.chbPwm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chbPwm.Size = new System.Drawing.Size(82, 69);
+            this.chbPwm.TabIndex = 525;
+            this.chbPwm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chbPwm.UseVisualStyleBackColor = false;
             // 
             // nudDeadzone
             // 
@@ -10109,7 +10109,6 @@
             this.chbPloeg.TabIndex = 518;
             this.chbPloeg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chbPloeg.UseVisualStyleBackColor = false;
-            this.chbPloeg.CheckedChanged += new System.EventHandler(this.chbPloeg_CheckedChanged);
             // 
             // nudUser3
             // 
@@ -11021,8 +11020,8 @@
         private NudlessNumericUpDown nudPwmMin;
         private System.Windows.Forms.Label label184;
         private System.Windows.Forms.Label label183;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox cbPwm;
+        private System.Windows.Forms.CheckBox chbBlackWhite;
+        private System.Windows.Forms.CheckBox chbPwm;
         private NudlessNumericUpDown nudDeadzone;
         private System.Windows.Forms.Button btnSetDeadzone;
         private System.Windows.Forms.Label label148;
@@ -11034,7 +11033,7 @@
         private System.Windows.Forms.Label label151;
         private System.Windows.Forms.CheckBox chbPloeg;
         private System.Windows.Forms.Label label187;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox chbRotationSensor;
         public System.Windows.Forms.Button btnSetWidth;
         public NudlessNumericUpDown nudUser1;
         private System.Windows.Forms.Label lblStepsManual;
