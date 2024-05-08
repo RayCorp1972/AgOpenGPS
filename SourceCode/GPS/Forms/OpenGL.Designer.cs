@@ -2581,7 +2581,7 @@ namespace AgOpenGPS
             font.DrawText(center + 10, 180, DesiredPloughWidth + ": " + (decimal)Properties.Settings.Default.setArdMac_user1 + "cm", 0.7);
             font.DrawText(center + 10, 210, CurrentPloughWidth + ": " + ploughWidth.ToString() + "cm", 0.7);
             font.DrawText(center + 10, 240, Deadzone + ": " + (decimal)Properties.Settings.Default.setArdMac_user5 + "mm", 0.7);
-            font.DrawText(center + 25, 310, "" + Wider + "    " + Narrow , 0.6);
+            //font.DrawText(center + 25, 310, "" + Wider + "    " + Narrow , 0.6);
             if (ploughMode == 0) font.DrawText(center + 10, 270, SectionOff, 0.7);
             else if (ploughMode == 1) font.DrawText(center + 10, 270, AutoConfig, 1);
             else if (ploughMode == 2) font.DrawText(center + 10, 270, AutoSwitch, 1);
@@ -2592,10 +2592,17 @@ namespace AgOpenGPS
             else if (ploughMode == 7) font.DrawText(center + 10, 270, Min, 1);
             else if (ploughMode == 8) font.DrawText(center + 10, 270, Abline, 1);
 
-           
-                //PlougPwmMinus();
-                //PlougPwmPlus();
-           
+            if (PlAuto == false)
+            {
+                font.DrawText(center + 25, 310, "" + Wider + "    " + Narrow, 0.6);
+                PlougPwmMinus();
+                PlougPwmPlus();
+
+            }
+            else
+            {
+
+            }
 
 
         }
@@ -2604,7 +2611,7 @@ namespace AgOpenGPS
         {
 
             
-            
+
                 GL.Enable(EnableCap.Texture2D);      // Select Our Texture
                 GL.Color3(0.90f, 0.90f, 0.93f);
                 GL.BindTexture(TextureTarget.Texture2D, texture[(int)FormGPS.textures.ZoomOut48]);        // Select Our Texture

@@ -86,6 +86,8 @@ namespace AgOpenGPS
 
         public double secondsSinceStart;
 
+        public bool PlAuto = false;
+
         //private readonly Stopwatch swDraw = new Stopwatch();
         //swDraw.Reset();
         //swDraw.Start();
@@ -368,7 +370,7 @@ namespace AgOpenGPS
                 form.ShowDialog(this);
             }
 
-           
+            PlAuto = true;
 
             this.MouseWheel += ZoomByMouseWheel;
 
@@ -543,19 +545,7 @@ namespace AgOpenGPS
 
             hotkeys = Properties.Settings.Default.setKey_hotkeys.ToCharArray();
 
-            //if (!isTermsAccepted)
-            //{
-            //    if (!Properties.Settings.Default.setDisplay_isTermsAccepted)
-            //    {
-            //        using (var form = new Form_First(this))
-            //        {
-            //            if (form.ShowDialog(this) != DialogResult.OK)
-            //            {
-            //                Close();
-            //            }
-            //        }
-            //    }
-            //}
+          
         }
 
         private void btnPloughControl_Click(object sender, EventArgs e)
@@ -566,15 +556,19 @@ namespace AgOpenGPS
                 Image plAuto1 = Resources.plAuto1;
                 Image plMan = Resources.plMan;
 
-                // Check if the background image is plAuto1
+                
                 if (IsSameImage(btnPloughControl.BackgroundImage, plAuto1))
-                {
+                { 
                     btnPloughControl.BackgroundImage = plMan;
+                    PlAuto = false;
+                   
                 }
-                // Check if the background image is plMan
+                
                 else if (IsSameImage(btnPloughControl.BackgroundImage, plMan))
                 {
-                    btnPloughControl.BackgroundImage = plAuto1;
+                    
+                    btnPloughControl.BackgroundImage = plAuto1;                
+                    PlAuto = true;
                 }
             }
         }

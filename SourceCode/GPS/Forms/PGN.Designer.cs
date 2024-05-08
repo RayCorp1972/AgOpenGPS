@@ -203,8 +203,8 @@ namespace AgOpenGPS
             public int lowerTime = 6;
             public int enableHyd = 7;
             public int set0 = 8;
-            public int user1 = 9;       //Target width (+200cm)
-            public int user2 = 10;      //Calabration command instrction
+            public int user1 = 9;       //Target width (+200cm)                                            5  
+            public int user2 = 10;      //Calabration command instrction                                   
             public int user3 = 11;      //Set value L
             public int user4 = 12;      //Set value H
             public int user5 = 13;      //deadBand
@@ -212,7 +212,7 @@ namespace AgOpenGPS
             public int user7 = 15;      //Pwm Low
             public int user8 = 16;      //Pwm / Black-White
             public int user9 = 17;      //manual wider
-            public int user10 = 18;      //manual wider
+            public int user10 = 18;      //manual wider                                                     14
 
             // PGN  - 127.239 0x7FEF
             int crc = 0;
