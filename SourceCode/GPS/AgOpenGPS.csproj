@@ -991,6 +991,7 @@
     <None Include="Resources\plAuto %282%29.png" />
     <None Include="Resources\plAuto1.png" />
     <None Include="Resources\plMan.png" />
+    <None Include="Resources\Invert.png" />
     <Content Include="Resources\TF012.WAV" />
     <None Include="Resources\SectionOn.wav" />
     <None Include="Resources\SectionOff.wav" />

@@ -197,7 +197,7 @@ namespace AgOpenGPS
             //pboxSendMachine.Visible = true;
         }
 
-        private void SaveSettingsMachine()
+        public void SaveSettingsMachine()
         {
             int set = 1;
             int reset = 2046;

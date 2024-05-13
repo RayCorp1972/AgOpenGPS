@@ -369,8 +369,15 @@ namespace AgOpenGPS
             {
                 form.ShowDialog(this);
             }
-
-            PlAuto = true;
+            if (isPlougOn)
+            {
+                PlAuto = true;
+                btnPloughControl.Visible = true;
+            }
+            else
+            {
+                btnPloughControl.Visible = false;
+            }
 
             this.MouseWheel += ZoomByMouseWheel;
 
@@ -836,10 +843,12 @@ namespace AgOpenGPS
 
             ploughWidth = Properties.Settings.Default.setArdMac_user1;
             byte incrementAmount = Properties.Settings.Default.setArdMac_user8; // You can adjust this value to change the increment amount
-            ploughWidth += incrementAmount;
+            ploughWidth += incrementAmount; 
             Properties.Settings.Default.setArdMac_user1 = (byte)ploughWidth;
+            p_238.pgn[p_238.user1] = (byte)ploughWidth;
             SendPgnToLoop(p_238.pgn);
-            Properties.Settings.Default.Save(); 
+            Properties.Settings.Default.Save();
+
         }
 
 
@@ -849,6 +858,7 @@ namespace AgOpenGPS
             byte decrementAmount = Properties.Settings.Default.setArdMac_user8;
             ploughWidth -= decrementAmount;
             Properties.Settings.Default.setArdMac_user1 = (byte)ploughWidth;
+            p_238.pgn[p_238.user1] = (byte)ploughWidth;
             SendPgnToLoop(p_238.pgn);
             Properties.Settings.Default.Save();
 
@@ -873,6 +883,16 @@ namespace AgOpenGPS
         //request a new job
         public void JobNew()
         {
+
+            if (isPlougOn)
+            {
+                PlAuto = true;
+                btnPloughControl.Visible = true;
+            }
+            else
+            {
+                btnPloughControl.Visible = false;
+            }
             //SendSteerSettingsOutAutoSteerPort();
             isJobStarted = true;
             startCounter = 0;

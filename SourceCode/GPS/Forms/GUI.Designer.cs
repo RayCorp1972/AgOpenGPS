@@ -1331,6 +1331,7 @@ namespace AgOpenGPS
                         if (point.Y > 60 && point.Y < 365)
                         {
                             PwmPloughManualSetMin();
+                            
                         }
                     }
 
